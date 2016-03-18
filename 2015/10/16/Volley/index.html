@@ -1,0 +1,767 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="党要我帅，我不得不帅！" />
+
+
+
+  <meta name="keywords" content="Android,Volley," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="导入VolleyVolley貌似没有官方的Maven repository，你必须依赖官方的源代码。从它的repository 下载Volley源码。使用Git命令：
+1git clone https://android.googlesource.com/platform/frameworks/volley
+不过还有第三种方法，你可以在build.gradle 文件的依赖部分添加这行代码：
+1co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Volley使用">
+<meta property="og:url" content="http://wuxiaolong.me/2015/10/16/Volley/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="导入VolleyVolley貌似没有官方的Maven repository，你必须依赖官方的源代码。从它的repository 下载Volley源码。使用Git命令：
+1git clone https://android.googlesource.com/platform/frameworks/volley
+不过还有第三种方法，你可以在build.gradle 文件的依赖部分添加这行代码：
+1co">
+<meta property="og:updated_time" content="2016-03-17T00:44:06.351Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Volley使用">
+<meta name="twitter:description" content="导入VolleyVolley貌似没有官方的Maven repository，你必须依赖官方的源代码。从它的repository 下载Volley源码。使用Git命令：
+1git clone https://android.googlesource.com/platform/frameworks/volley
+不过还有第三种方法，你可以在build.gradle 文件的依赖部分添加这行代码：
+1co">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide'
+  };
+</script>
+
+    <title> Android Volley使用 // 吴小龙同學 </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">吴小龙同學</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks" rel="section">
+            <i class="menu-item-icon icon-friendslinks"></i> <br />
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+				
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Android Volley使用
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-16T16:46:49+08:00" content="2015-10-16">
+            2015-10-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/16/Volley/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/16/Volley/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="导入Volley">导入Volley</h2><p>Volley貌似没有官方的Maven repository，你必须依赖官方的源代码。从它的repository 下载Volley源码。使用Git命令：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="comment">//android.googlesource.com/platform/frameworks/volley</span></span><br></pre></td></tr></table></figure>
+<p>不过还有第三种方法，你可以在build.gradle 文件的依赖部分添加这行代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.mcxiaoke.volley:library-aar:1.0.15'</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="准备工作">准备工作</h2><ul>
+<li><p>权限</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.INTERNET"</span> /&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>变量<br>RequestQueue mRequestQueue = Volley.newRequestQueue(this);</p>
+</li>
+</ul>
+<h2 id="实践">实践</h2><p>Volley实现了三种常见的请求类型：<br>StringRequest<br>JsonObjectRequest<br>ImageRequest</p>
+<h3 id="StringRequest">StringRequest</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">stringRequest</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        showMsg.setText(<span class="string">""</span>);</span><br><span class="line">        progressBar.setVisibility(View.VISIBLE);</span><br><span class="line">        String url = <span class="string">"http://wuxiaolong.me/"</span>;</span><br><span class="line">        StringRequest stringRequest = <span class="keyword">new</span> StringRequest(Request.Method.GET, url, <span class="keyword">new</span> Response.Listener&lt;String&gt;() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(String response)</span> </span>&#123;</span><br><span class="line">                showMsg.setText(<span class="string">"stringRequest=="</span> + response);</span><br><span class="line">                progressBar.setVisibility(View.GONE);</span><br><span class="line">                Log.d(<span class="string">"wxl"</span>, <span class="string">"stringRequest=="</span> + response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">new</span> Response.ErrorListener() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError error)</span> </span>&#123;</span><br><span class="line">                Log.d(<span class="string">"wxl"</span>, <span class="string">"StringRequest error=="</span> + error);</span><br><span class="line">                progressBar.setVisibility(View.GONE);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        stringRequest.setTag(<span class="string">"stringRequest"</span>);</span><br><span class="line">        <span class="comment">//如果要取消stringRequest请求，只需简单的添加下面的一行代码：</span></span><br><span class="line">        <span class="comment">// mRequestQueue.cancelAll("stringRequest");</span></span><br><span class="line">        mRequestQueue.add(stringRequest);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="JsonObjectRequest">JsonObjectRequest</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">jsonObjectRequest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       showMsg.setText(<span class="string">""</span>);</span><br><span class="line">       progressBar.setVisibility(View.VISIBLE);</span><br><span class="line">       String url = <span class="string">"http://httpbin.org/get?site=code&amp;network=tutsplus"</span>;</span><br><span class="line">       JsonObjectRequest jsonObjectRequest = <span class="keyword">new</span> JsonObjectRequest(Request.Method.GET, url, <span class="keyword">null</span>, <span class="keyword">new</span> Response.Listener&lt;JSONObject&gt;() &#123;</span><br><span class="line">           <span class="annotation">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(JSONObject response)</span> </span>&#123;</span><br><span class="line">               showMsg.setText(<span class="string">"JsonObjectRequest=="</span> + response);</span><br><span class="line">               progressBar.setVisibility(View.GONE);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;, <span class="keyword">new</span> Response.ErrorListener() &#123;</span><br><span class="line">           <span class="annotation">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError error)</span> </span>&#123;</span><br><span class="line">               showMsg.setText(<span class="string">"JsonObjectRequest error=="</span> + error);</span><br><span class="line">               progressBar.setVisibility(View.GONE);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">       mRequestQueue.add(jsonObjectRequest);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>如果请求JSONArray ，只需用JsonArrayRequest 替代aJsonObjectRequest就可以了</p>
+<h3 id="ImageRequest">ImageRequest</h3><p>有三种请求图片的方法。</p>
+<ul>
+<li><p>ImageRequest</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 第一个参数是图片的url，</span><br><span class="line">     * 第二个是结果的listener，</span><br><span class="line">     * 第三、第四个参数是maxWidth（最大宽度） 和 maxHeight（最大高度），你可以设置为0来忽略他们。</span><br><span class="line">     * 第五个参数是用于计算图片所需大小的ScaleType，</span><br><span class="line">     * 第六个参数是用于指定图片压缩方式的参数，建议总是使用 Bitmap.Config.ARGB_8888</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">iamgeRequest</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        showMsg.setText(<span class="string">""</span>);</span><br><span class="line">        progressBar.setVisibility(View.VISIBLE);</span><br><span class="line">        showImage.setImageBitmap(<span class="keyword">null</span>);</span><br><span class="line">        String url = <span class="string">"http://p3.so.qhimg.com/t012befc69d1b6d8f88.jpg"</span>;</span><br><span class="line">        ImageRequest imageRequest = <span class="keyword">new</span> ImageRequest(url, <span class="keyword">new</span> Response.Listener&lt;Bitmap&gt;() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Bitmap response)</span> </span>&#123;</span><br><span class="line">                showImage.setImageBitmap(response);</span><br><span class="line">                progressBar.setVisibility(View.GONE);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="number">0</span>, <span class="number">0</span>, ImageView.ScaleType.FIT_XY, Bitmap.Config.ARGB_8888, <span class="keyword">new</span> Response.ErrorListener() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError error)</span> </span>&#123;</span><br><span class="line">                progressBar.setVisibility(View.GONE);</span><br><span class="line">                showMsg.setText(<span class="string">"ImageRequest error=="</span> + error);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        mRequestQueue.add(imageRequest);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>imageLoader+NetworkImageView<br>NetworkImageView xml</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;com.android.volley.toolbox.NetworkImageView</span><br><span class="line">               android:id=<span class="string">"@+id/networkImageView"</span></span><br><span class="line">               android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">               android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">               android:layout_marginTop=<span class="string">"10dp"</span></span><br><span class="line">               android:layout_gravity=<span class="string">"center_horizontal"</span></span><br><span class="line">               android:src=<span class="string">"@mipmap/ic_launcher"</span> /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>NetworkImageView在加载图片的时候会自动获取自身控件的宽高，然后对比网络图片的宽度，再决定是否需要对图片进行压缩。也就是说，压缩过程是在内部完全自动化的，并不需要我们关心，NetworkImageView会始终呈现给我们一张大小刚刚好的网络图片，不会多占用任何一点内存。</p>
+<p>如果不想对图片进行压缩的话，只需要在布局文件中把NetworkImageView的layout_width和layout_height都设置成wrap_content就可以了，这样NetworkImageView就会将该图片的原始大小展示出来，不会进行任何压缩。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">   * 数量庞大的ImageRequests，比如生成一个带有图片的ListView</span><br><span class="line">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">imageLoader</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      showMsg.setText(<span class="string">""</span>);</span><br><span class="line">      showImage.setImageBitmap(<span class="keyword">null</span>);</span><br><span class="line">      progressBar.setVisibility(View.VISIBLE);</span><br><span class="line">      String url = <span class="string">"http://p0.so.qhimg.com/t0191efbe9e784617e5.jpg"</span>;</span><br><span class="line">      <span class="keyword">int</span> maxSize = <span class="number">10</span> * <span class="number">1024</span> * <span class="number">1024</span>;<span class="comment">//设置缓存图片的大小为10M</span></span><br><span class="line">      <span class="keyword">final</span> LruCache&lt;String, Bitmap&gt; lruCache = <span class="keyword">new</span> LruCache&lt;String, Bitmap&gt;(maxSize) &#123;</span><br><span class="line">          <span class="annotation">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">sizeOf</span><span class="params">(String key, Bitmap bitmap)</span> </span>&#123;</span><br><span class="line">              <span class="keyword">return</span> bitmap.getRowBytes() * bitmap.getHeight();</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      ImageLoader imageLoader = <span class="keyword">new</span> ImageLoader(mRequestQueue, <span class="keyword">new</span> ImageLoader.ImageCache() &#123;</span><br><span class="line">          <span class="annotation">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> Bitmap <span class="title">getBitmap</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">              <span class="keyword">return</span> lruCache.get(url);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="annotation">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putBitmap</span><span class="params">(String url, Bitmap bitmap)</span> </span>&#123;</span><br><span class="line">              lruCache.put(url, bitmap);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      imageLoader.get(url, <span class="keyword">new</span> ImageLoader.ImageListener() &#123;</span><br><span class="line">          <span class="annotation">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(ImageLoader.ImageContainer response, <span class="keyword">boolean</span> isImmediate)</span> </span>&#123;</span><br><span class="line">              showImage.setImageBitmap(response.getBitmap());</span><br><span class="line">              progressBar.setVisibility(View.GONE);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="annotation">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError error)</span> </span>&#123;</span><br><span class="line">              progressBar.setVisibility(View.GONE);</span><br><span class="line">              showMsg.setText(<span class="string">"ImageRequest error=="</span> + error);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;, <span class="number">0</span>, <span class="number">0</span>, ImageView.ScaleType.FIT_XY);</span><br><span class="line"><span class="comment">//以下是NetworkImageView部分</span></span><br><span class="line">      networkImageView.setDefaultImageResId(R.mipmap.ic_launcher);</span><br><span class="line">      networkImageView.setErrorImageResId(R.mipmap.ic_launcher);</span><br><span class="line">      networkImageView.setImageUrl(<span class="string">"http://p2.so.qhimg.com/t01ac4a335801991667.jpg"</span>, imageLoader);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="postRequest">postRequest</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">postRequest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       showMsg.setText(<span class="string">""</span>);</span><br><span class="line">       progressBar.setVisibility(View.VISIBLE);</span><br><span class="line">       String url = <span class="string">"http://httpbin.org/post"</span>;</span><br><span class="line"></span><br><span class="line">       StringRequest postRequest = <span class="keyword">new</span> StringRequest(Request.Method.POST, url,</span><br><span class="line">               <span class="keyword">new</span> Response.Listener&lt;String&gt;() &#123;</span><br><span class="line">                   <span class="annotation">@Override</span></span><br><span class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(String response)</span> </span>&#123;</span><br><span class="line">                       <span class="keyword">try</span> &#123;</span><br><span class="line">                           JSONObject jsonResponse = <span class="keyword">new</span> JSONObject(response).getJSONObject(<span class="string">"form"</span>);</span><br><span class="line">                           String site = jsonResponse.getString(<span class="string">"site"</span>),</span><br><span class="line">                                   network = jsonResponse.getString(<span class="string">"network"</span>);</span><br><span class="line">                           System.out.println(<span class="string">"Site: "</span> + site + <span class="string">"\nNetwork: "</span> + network);</span><br><span class="line">                           showMsg.setText(<span class="string">"PostRequest=="</span> + <span class="string">"Site: "</span> + site + <span class="string">"\nNetwork: "</span> + network);</span><br><span class="line">                           progressBar.setVisibility(View.GONE);</span><br><span class="line">                       &#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">                           e.printStackTrace();</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;,</span><br><span class="line">               <span class="keyword">new</span> Response.ErrorListener() &#123;</span><br><span class="line">                   <span class="annotation">@Override</span></span><br><span class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError error)</span> </span>&#123;</span><br><span class="line">                       error.printStackTrace();</span><br><span class="line">                       showMsg.setText(<span class="string">"PostRequest error=="</span> + error);</span><br><span class="line">                       progressBar.setVisibility(View.GONE);</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">       ) &#123;</span><br><span class="line">           <span class="annotation">@Override</span></span><br><span class="line">           <span class="keyword">protected</span> Map&lt;String, String&gt; getParams() &#123;</span><br><span class="line">               Map&lt;String, String&gt; params = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">               <span class="comment">// the POST parameters:</span></span><br><span class="line">               params.put(<span class="string">"site"</span>, <span class="string">"code"</span>);</span><br><span class="line">               params.put(<span class="string">"network"</span>, <span class="string">"tutsplus"</span>);</span><br><span class="line">               <span class="keyword">return</span> params;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;;</span><br><span class="line">       mRequestQueue.add(postRequest);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="取消Volley">取消Volley</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onStop();</span><br><span class="line">       mRequestQueue.cancelAll(<span class="keyword">new</span> RequestQueue.RequestFilter() &#123;</span><br><span class="line">           <span class="annotation">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(Request&lt;?&gt; request)</span> </span>&#123;</span><br><span class="line">               <span class="comment">// do I have to cancel this?</span></span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">// -&gt; always yes</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="源码地址">源码地址</h2><p><a href="https://github.com/WuXiaolong/VolleySample" target="_blank" rel="external">https://github.com/WuXiaolong/VolleySample</a></p>
+<h2 id="附录">附录</h2><p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0526/2934.html" target="_blank" rel="external">网络请求库Volley详解</a><br><a href="http://glblong.blog.51cto.com/3058613/1406758" target="_blank" rel="external">Android开源：网络框架volley使用(一)</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Volley/" rel="tag">#Volley</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/01/Activity/" rel="prev">Activity生命周期和启动模式</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/08/Font-Awesome/" rel="next">github之Font-Awesome使用</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/10/16/Volley/"
+     data-title="Android Volley使用"
+     data-content=""
+     data-url="http://wuxiaolong.me/2015/10/16/Volley/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+	   <li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ好友</a></li>
+       <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+	   <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>	     
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+			
+            </div>
+            
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2015/10/16/Volley/"
+                       data-title="Android Volley使用" data-url="http://wuxiaolong.me/2015/10/16/Volley/">
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="吴小龙同學" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">吴小龙同學</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">党要我帅，我不得不帅！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">115</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">86</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WuXiaolong" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2175011601" target="_blank">Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/qq" target="_blank">QQ</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">热门推荐</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://wuxiaolong.me/2015/08/10/android-small-knowledge-base/" target="_blank">Android小知识库</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/" target="_blank">Android MVP实例</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://wuxiaolong.me/2015/11/10/toolbar/" target="_blank">Android Toolbar</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入Volley"><span class="nav-number">1.</span> <span class="nav-text">导入Volley</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践"><span class="nav-number">3.</span> <span class="nav-text">实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#StringRequest"><span class="nav-number">3.1.</span> <span class="nav-text">StringRequest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JsonObjectRequest"><span class="nav-number">3.2.</span> <span class="nav-text">JsonObjectRequest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageRequest"><span class="nav-number">3.3.</span> <span class="nav-text">ImageRequest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#postRequest"><span class="nav-number">3.4.</span> <span class="nav-text">postRequest</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消Volley"><span class="nav-number">4.</span> <span class="nav-text">取消Volley</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码地址"><span class="nav-number">5.</span> <span class="nav-text">源码地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">6.</span> <span class="nav-text">附录</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+</div>
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wuxiaolong"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	  <script type="text/javascript">
+  		var duoshuo_user_ID = wuxiaolong
+  	  </script>
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
