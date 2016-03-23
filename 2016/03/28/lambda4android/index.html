@@ -37,23 +37,23 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="retrolambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。
+<meta name="description" content="Lambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。
 
 什么是lambdalambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：123456view.setOnClickListener(new View.OnClickListener() &amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lambda for Android">
-<meta property="og:url" content="http://wuxiaolong.me/2016/03/25/lambda4android/index.html">
+<meta property="og:url" content="http://wuxiaolong.me/2016/03/28/lambda4android/index.html">
 <meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="retrolambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。
+<meta property="og:description" content="Lambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。
 
 什么是lambdalambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：123456view.setOnClickListener(new View.OnClickListener() &amp;#123;">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android1.png">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android2.png">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg">
-<meta property="og:updated_time" content="2016-03-23T03:27:20.801Z">
+<meta property="og:updated_time" content="2016-03-23T03:37:17.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lambda for Android">
-<meta name="twitter:description" content="retrolambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。
+<meta name="twitter:description" content="Lambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。
 
 什么是lambdalambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：123456view.setOnClickListener(new View.OnClickListener() &amp;#123;">
 
@@ -222,8 +222,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-25T20:59:20+08:00" content="2016-03-25">
-            2016-03-25
+          <time itemprop="dateCreated" datetime="2016-03-28T20:59:20+08:00" content="2016-03-28">
+            2016-03-28
           </time>
         </span>
 
@@ -244,8 +244,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/03/25/lambda4android/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/25/lambda4android/" itemprop="commentsCount"></span>
+              <a href="/2016/03/28/lambda4android/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/28/lambda4android/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -260,7 +260,7 @@
 
       
         <span itemprop="articleBody"><blockquote>
-<p>retrolambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。</p>
+<p>Lambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。</p>
 </blockquote>
 <h1 id="什么是lambda">什么是lambda</h1><p>lambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">view.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                 Log.d(<span class="string">"wxl"</span>, <span class="string">"retrolambda test"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>使用 lambda<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">view</span>.setOnClickListener(</span><br><span class="line">v -&gt; <span class="keyword">Log</span>.<span class="literal">d</span>(<span class="string">"wxl"</span>, <span class="string">"retrolambda test"</span>));</span><br></pre></td></tr></table></figure></p>
@@ -275,7 +275,7 @@
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line">apply plugin: <span class="string">'me.tatarka.retrolambda'</span><span class="comment">//加上这句加,入plugin声明</span></span><br><span class="line">android &#123;</span><br><span class="line">	……</span><br><span class="line">    compileOptions &#123;<span class="comment">//使用JAVA8语法解析</span></span><br><span class="line">        <span class="keyword">sourceCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">        <span class="keyword">targetCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">retrolambda &#123;<span class="comment">//指定将源码编译的级别，使用下列代码，会将代码编译到兼容1.6的字节码格式</span></span><br><span class="line">    javaVersion JavaVersion.VERSION_1_6</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h1 id="Android_Studio自动生成lambda">Android Studio自动生成lambda</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android1.png" alt=""><br>当配置Retrolambda成功后，Android Studio会有提示，按Alt+Enter键<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android2.png" alt=""><br>点击替换，这样就能自动生成，使用lambda。很晚了，到这里我就可以洗洗睡了，但为什么可以这样写呢，还是来简单了解lambda语法吧。</p>
+<h1 id="Android_Studio自动生成lambda">Android Studio自动生成lambda</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android1.png" alt=""><br>当配置Retrolambda成功后，Android Studio会有提示，按Alt+Enter键<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android2.png" alt=""><br>点击替换，这样就能自动生成，使用lambda了。到这里我就可以洗洗睡了，也很晚了，但为什么可以这样写呢，还是来简单了解lambda语法吧。</p>
 <h1 id="lambda语法简介">lambda语法简介</h1><p>基本格式<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">input</span> -&gt; body</span><br></pre></td></tr></table></figure></p>
 <h2 id="intput种类">intput种类</h2><ul>
 <li>无输入 void<br>() -&gt; body<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                Log.d(<span class="string">"wxl"</span>, <span class="string">"retrolambda test"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
@@ -347,10 +347,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/03/25/lambda4android/"
+        <div class="ds-share flat" data-thread-key="2016/03/28/lambda4android/"
      data-title="Lambda for Android"
      data-content=""
-     data-url="http://wuxiaolong.me/2016/03/25/lambda4android/">
+     data-url="http://wuxiaolong.me/2016/03/28/lambda4android/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -379,8 +379,8 @@
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2016/03/25/lambda4android/"
-                       data-title="Lambda for Android" data-url="http://wuxiaolong.me/2016/03/25/lambda4android/">
+                  <div class="ds-thread" data-thread-key="2016/03/28/lambda4android/"
+                       data-title="Lambda for Android" data-url="http://wuxiaolong.me/2016/03/28/lambda4android/">
                   </div>
                 
               </div>
