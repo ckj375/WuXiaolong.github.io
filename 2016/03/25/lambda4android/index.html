@@ -42,7 +42,7 @@
 什么是lambdalambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：123456view.setOnClickListener(new View.OnClickListener() &amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lambda for Android">
-<meta property="og:url" content="http://wuxiaolong.me/2016/03/19/lambda4android/index.html">
+<meta property="og:url" content="http://wuxiaolong.me/2016/03/25/lambda4android/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="retrolambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。
 
@@ -50,7 +50,7 @@
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android1.png">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android2.png">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg">
-<meta property="og:updated_time" content="2016-03-23T01:33:55.561Z">
+<meta property="og:updated_time" content="2016-03-23T03:27:20.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lambda for Android">
 <meta name="twitter:description" content="retrolambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。
@@ -222,8 +222,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-19T20:59:20+08:00" content="2016-03-19">
-            2016-03-19
+          <time itemprop="dateCreated" datetime="2016-03-25T20:59:20+08:00" content="2016-03-25">
+            2016-03-25
           </time>
         </span>
 
@@ -244,8 +244,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/03/19/lambda4android/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/lambda4android/" itemprop="commentsCount"></span>
+              <a href="/2016/03/25/lambda4android/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/25/lambda4android/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -308,6 +308,7 @@
 </ul>
 <h1 id="AndroidProgrammer">AndroidProgrammer</h1><p>我的微信公众号：Android高手进阶之路，让我们共同学习，每天进步一点点。欢迎微信扫一扫关注。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg" alt=""></p>
 <h1 id="关于作者">关于作者</h1><p><a href="http://wuxiaolong.me/about/">点击查看</a></p>
+<h1 id="附录">附录</h1><p><a href="http://www.jianshu.com/p/f02b04344365" target="_blank" rel="external">Lambda表达式的意义</a></p>
 </span>
       
     </div>
@@ -346,10 +347,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/03/19/lambda4android/"
+        <div class="ds-share flat" data-thread-key="2016/03/25/lambda4android/"
      data-title="Lambda for Android"
      data-content=""
-     data-url="http://wuxiaolong.me/2016/03/19/lambda4android/">
+     data-url="http://wuxiaolong.me/2016/03/25/lambda4android/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -378,8 +379,8 @@
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2016/03/19/lambda4android/"
-                       data-title="Lambda for Android" data-url="http://wuxiaolong.me/2016/03/19/lambda4android/">
+                  <div class="ds-thread" data-thread-key="2016/03/25/lambda4android/"
+                       data-title="Lambda for Android" data-url="http://wuxiaolong.me/2016/03/25/lambda4android/">
                   </div>
                 
               </div>
@@ -490,7 +491,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是lambda"><span class="nav-number">1.</span> <span class="nav-text">什么是lambda</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android如何使用"><span class="nav-number">2.</span> <span class="nav-text">Android如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android_Studio配置Retrolambda"><span class="nav-number">2.1.</span> <span class="nav-text">Android Studio配置Retrolambda</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android_Studio自动生成lambda"><span class="nav-number">3.</span> <span class="nav-text">Android Studio自动生成lambda</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lambda语法简介"><span class="nav-number">4.</span> <span class="nav-text">lambda语法简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#intput种类"><span class="nav-number">4.1.</span> <span class="nav-text">intput种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#body_种类"><span class="nav-number">4.2.</span> <span class="nav-text">body 种类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidProgrammer"><span class="nav-number">5.</span> <span class="nav-text">AndroidProgrammer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于作者"><span class="nav-number">6.</span> <span class="nav-text">关于作者</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是lambda"><span class="nav-number">1.</span> <span class="nav-text">什么是lambda</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android如何使用"><span class="nav-number">2.</span> <span class="nav-text">Android如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android_Studio配置Retrolambda"><span class="nav-number">2.1.</span> <span class="nav-text">Android Studio配置Retrolambda</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android_Studio自动生成lambda"><span class="nav-number">3.</span> <span class="nav-text">Android Studio自动生成lambda</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lambda语法简介"><span class="nav-number">4.</span> <span class="nav-text">lambda语法简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#intput种类"><span class="nav-number">4.1.</span> <span class="nav-text">intput种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#body_种类"><span class="nav-number">4.2.</span> <span class="nav-text">body 种类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidProgrammer"><span class="nav-number">5.</span> <span class="nav-text">AndroidProgrammer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于作者"><span class="nav-number">6.</span> <span class="nav-text">关于作者</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-number">7.</span> <span class="nav-text">附录</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
