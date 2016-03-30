@@ -43,7 +43,8 @@
 <meta property="og:url" content="http://wuxiaolong.me/2015/12/21/fragmentToolbar/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="Activity使用Toolbar一般在Activity里使用Toolbar如下：toolbar.xml12345678&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;android.support.v7.widget.Toolbar xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;">
-<meta property="og:updated_time" content="2016-03-17T00:44:06.356Z">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg">
+<meta property="og:updated_time" content="2016-03-25T07:34:02.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Fragment使用Toolbar">
 <meta name="twitter:description" content="Activity使用Toolbar一般在Activity里使用Toolbar如下：toolbar.xml12345678&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;android.support.v7.widget.Toolbar xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;">
@@ -266,6 +267,7 @@
 <p>想让Fragment中的onCreateOptionsMenu生效必须先调用setHasOptionsMenu方法，否则Toolbar没有菜单。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</span><br><span class="line">    Activity mActivity;   </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onViewCreated</span><span class="params">(View view, Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onViewCreated(view, savedInstanceState);</span><br><span class="line">        mActivity = getActivity();</span><br><span class="line">        setHasOptionsMenu(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
 <p>setHasOptionsMenu方法源码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">   * Report that this fragment would like to participate in populating</span><br><span class="line">   * the options menu by receiving a call to &#123;<span class="doctag">@link</span> #onCreateOptionsMenu&#125;</span><br><span class="line">   * and related methods.</span><br><span class="line">   *</span><br><span class="line">   * <span class="doctag">@param</span> hasMenu If true, the fragment has menu items to contribute.</span><br><span class="line">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHasOptionsMenu</span><span class="params">(<span class="keyword">boolean</span> hasMenu)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (mHasMenu != hasMenu) &#123;</span><br><span class="line">          mHasMenu = hasMenu;</span><br><span class="line">          <span class="keyword">if</span> (isAdded() &amp;&amp; !isHidden()) &#123;</span><br><span class="line">              mHost.onSupportInvalidateOptionsMenu();</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="单独使用而不与ActionBar进行关联">单独使用而不与ActionBar进行关联</h1><p>多谢@XZoomEye提示，对于Fragment使用Toolbar思维被局限了，在<a href="http://wuxiaolong.me/2015/11/10/toolbar/">Android Toolbar</a>一文中介绍了单独使用而不与ActionBar进行关联，直接使用ToolBar的inflateMenu方法，Menu的事件也是独立的，需要通过设置ToolBar的setOnMenuItemClickListener来实现，这样做就不会发生标题错乱。</p>
+<h1 id="AndroidProgrammer">AndroidProgrammer</h1><p>我的微信公众号：Android高手进阶之路，让我们共同学习，每天进步一点点。欢迎微信扫一扫关注。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg" alt=""></p>
 <h1 id="关于作者">关于作者</h1><p><a href="http://wuxiaolong.me/about/">点击查看</a></p>
 </span>
       
@@ -380,21 +382,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">116</span>
+              <span class="site-state-item-count">118</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">88</span>
+              <span class="site-state-item-count">90</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -451,7 +453,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Activity使用Toolbar"><span class="nav-number">1.</span> <span class="nav-text">Activity使用Toolbar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment使用Toolbar"><span class="nav-number">2.</span> <span class="nav-text">Fragment使用Toolbar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment标题错乱"><span class="nav-number">3.</span> <span class="nav-text">Fragment标题错乱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment让Toolbar菜单生效"><span class="nav-number">4.</span> <span class="nav-text">Fragment让Toolbar菜单生效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单独使用而不与ActionBar进行关联"><span class="nav-number">5.</span> <span class="nav-text">单独使用而不与ActionBar进行关联</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于作者"><span class="nav-number">6.</span> <span class="nav-text">关于作者</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Activity使用Toolbar"><span class="nav-number">1.</span> <span class="nav-text">Activity使用Toolbar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment使用Toolbar"><span class="nav-number">2.</span> <span class="nav-text">Fragment使用Toolbar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment标题错乱"><span class="nav-number">3.</span> <span class="nav-text">Fragment标题错乱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment让Toolbar菜单生效"><span class="nav-number">4.</span> <span class="nav-text">Fragment让Toolbar菜单生效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单独使用而不与ActionBar进行关联"><span class="nav-number">5.</span> <span class="nav-text">单独使用而不与ActionBar进行关联</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidProgrammer"><span class="nav-number">6.</span> <span class="nav-text">AndroidProgrammer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于作者"><span class="nav-number">7.</span> <span class="nav-text">关于作者</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

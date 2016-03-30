@@ -44,7 +44,8 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="准备阶段为了方便了解整个事件传递的机制，我们设计一个场景：角色：一个经理：MotionEventViewGroupA，最外层的ViewGroupA；一个组长：MotionEventViewGroupB，中间的ViewGroupB；一个你：MotionEventViewC，最底层的码农。模拟：经理分派任务，下属处理这个任务的过程。">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/MotionEvent.png">
-<meta property="og:updated_time" content="2016-03-17T00:44:06.343Z">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg">
+<meta property="og:updated_time" content="2016-03-25T07:36:52.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android事件传递机制分析">
 <meta name="twitter:description" content="准备阶段为了方便了解整个事件传递的机制，我们设计一个场景：角色：一个经理：MotionEventViewGroupA，最外层的ViewGroupA；一个组长：MotionEventViewGroupB，中间的ViewGroupB；一个你：MotionEventViewC，最底层的码农。模拟：经理分派任务，下属处理这个任务的过程。">
@@ -272,6 +273,7 @@
 <h2 id="组长觉得你任务完成太烂，不敢上报">组长觉得你任务完成太烂，不敢上报</h2><p>即MotionEventViewB里onTouchEvent返回true，我们看下log信息：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MotionEventViewGroupA dispatchTouchEventA</span><br><span class="line">MotionEventViewGroupA onInterceptTouchEventA</span><br><span class="line">MotionEventViewGroupB dispatchTouchEventB</span><br><span class="line">MotionEventViewGroupB onInterceptTouchEventB</span><br><span class="line">MotionEventViewC dispatchTouchEventC</span><br><span class="line">MotionEventViewC onTouchEventC</span><br><span class="line">MotionEventViewGroupB onTouchEventB</span><br></pre></td></tr></table></figure></p>
 <p>事件处理经过你和组长，到组长那里就结束了。</p>
 <p><code>是不是这样的分析让你对事件的传递不再是一头雾水了，大赞医生《Android群英传》。</code></p>
+<h1 id="AndroidProgrammer">AndroidProgrammer</h1><p>我的微信公众号：Android高手进阶之路，让我们共同学习，每天进步一点点。欢迎微信扫一扫关注。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg" alt=""></p>
 <h1 id="关于作者">关于作者</h1><p><a href="http://wuxiaolong.me/about/">点击查看</a></p>
 </span>
       
@@ -384,21 +386,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">116</span>
+              <span class="site-state-item-count">118</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">88</span>
+              <span class="site-state-item-count">90</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -455,7 +457,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备阶段"><span class="nav-number">1.</span> <span class="nav-text">准备阶段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#情景分析"><span class="nav-number">2.</span> <span class="nav-text">情景分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不做任何修改，点击MotionEventViewC"><span class="nav-number">2.1.</span> <span class="nav-text">不做任何修改，点击MotionEventViewC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#经理觉得这个任务太简单，自己处理"><span class="nav-number">2.2.</span> <span class="nav-text">经理觉得这个任务太简单，自己处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组长觉得这个任务太简单，自己处理"><span class="nav-number">2.3.</span> <span class="nav-text">组长觉得这个任务太简单，自己处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你迫于压力，辞职不干了，任务闲置"><span class="nav-number">2.4.</span> <span class="nav-text">你迫于压力，辞职不干了，任务闲置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组长觉得你任务完成太烂，不敢上报"><span class="nav-number">2.5.</span> <span class="nav-text">组长觉得你任务完成太烂，不敢上报</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于作者"><span class="nav-number">3.</span> <span class="nav-text">关于作者</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备阶段"><span class="nav-number">1.</span> <span class="nav-text">准备阶段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#情景分析"><span class="nav-number">2.</span> <span class="nav-text">情景分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不做任何修改，点击MotionEventViewC"><span class="nav-number">2.1.</span> <span class="nav-text">不做任何修改，点击MotionEventViewC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#经理觉得这个任务太简单，自己处理"><span class="nav-number">2.2.</span> <span class="nav-text">经理觉得这个任务太简单，自己处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组长觉得这个任务太简单，自己处理"><span class="nav-number">2.3.</span> <span class="nav-text">组长觉得这个任务太简单，自己处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你迫于压力，辞职不干了，任务闲置"><span class="nav-number">2.4.</span> <span class="nav-text">你迫于压力，辞职不干了，任务闲置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组长觉得你任务完成太烂，不敢上报"><span class="nav-number">2.5.</span> <span class="nav-text">组长觉得你任务完成太烂，不敢上报</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidProgrammer"><span class="nav-number">3.</span> <span class="nav-text">AndroidProgrammer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于作者"><span class="nav-number">4.</span> <span class="nav-text">关于作者</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
