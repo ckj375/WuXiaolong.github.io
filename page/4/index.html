@@ -205,6 +205,262 @@
           
           
             
+              <a class="post-title-link" href="/2015/11/10/gradle/" itemprop="url">
+                Android build.gradle文件
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-10T15:03:23+08:00" content="2015-11-10">
+            2015-11-10
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/10/gradle/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/gradle/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>app/build.gradle</p>
+<p>Android Studio使用Gradle 编译运行Android工程，工程的每个模块以及整个工程都有一个build.gradle文件。通常你只需要关注模块的build.gradle文件，该文件存放编译依赖设置，包括defaultConfig设置：<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/10/gradle/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/11/10/addHeaderView/" itemprop="url">
+                Android ListView addHeaderView
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-10T10:57:25+08:00" content="2015-11-10">
+            2015-11-10
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/10/addHeaderView/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/addHeaderView/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>最近在调试我的个人<a href="http://wuxiaolong.github.io/2015/11/09/dashishuo/">大湿说app</a>，发现在4.2系统下直接崩溃了，看log，原来是ListView addHeaderView和setAdapter方法调用顺利不同导致的错误，这里做下记录。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/10/addHeaderView/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/11/10/toolbar/" itemprop="url">
+                Android Toolbar
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-10T10:18:18+08:00" content="2015-11-10">
+            2015-11-10
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/10/toolbar/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/toolbar/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>在Material Design之中有一个名称为Toolbar，用来取代过去的ActionBar控件。</p>
+<h1 id="基本用法">基本用法</h1><p>可分为三步：</p>
+<h2 id="新增ToolBar样式">新增ToolBar样式</h2><p>value/styles.xml：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><br><span class="line"> <span class="xml"><span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"android:textColorPrimary"</span>&gt;</span>@android:color/white<span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--返回或更多(app:showAsAction="never")的按钮颜色--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"colorControlNormal"</span>&gt;</span>@android:color/white<span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--菜单字体颜色--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"actionMenuTextColor"</span>&gt;</span>@android:color/white<span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>看看 parent=”Theme.AppCompat.Light.NoActionBar”<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><br><span class="line">       <span class="xml"><span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"windowActionBar"</span>&gt;</span>false<span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">item</span> <span class="attribute">name</span>=<span class="value">"windowNoTitle"</span>&gt;</span>true<span class="tag">&lt;/<span class="title">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/10/toolbar/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/11/09/dashishuo/" itemprop="url">
                 大湿说
               </a>
@@ -790,270 +1046,11 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/10/16/Volley/" itemprop="url">
-                Android Volley使用
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-16T16:46:49+08:00" content="2015-10-16">
-            2015-10-16
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/10/16/Volley/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/16/Volley/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="导入Volley">导入Volley</h2><p>Volley貌似没有官方的Maven repository，你必须依赖官方的源代码。从它的repository 下载Volley源码。使用Git命令：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="comment">//android.googlesource.com/platform/frameworks/volley</span></span><br></pre></td></tr></table></figure>
-<p>不过还有第三种方法，你可以在build.gradle 文件的依赖部分添加这行代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.mcxiaoke.volley:library-aar:1.0.15'</span></span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/16/Volley/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/10/08/Font-Awesome/" itemprop="url">
-                github之Font-Awesome使用
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-08T15:31:38+08:00" content="2015-10-08">
-            2015-10-08
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/github/" itemprop="url" rel="index"><span itemprop="name">github</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/10/08/Font-Awesome/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/08/Font-Awesome/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>github地址：<a href="https://github.com/FortAwesome/Font-Awesome">https://github.com/FortAwesome/Font-Awesome</a>，一直知道这个项目，但是却不知道如何使用它，现在有个<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0925/3518.html">博客</a>介绍，感谢博主。我这里做个记录。</p>
-</blockquote>
-<h2 id="导入字体文件">导入字体文件</h2><p>在安卓项目中，导航到 app &gt; src &gt; main。 main 目录应该包含了一个叫 assets的文件夹。在assets 文件夹中创建另一个fonts文件夹，并把fontawesome-webfont.ttf 添加到这个文件夹。<br>fonts 文件夹并不是必须的。你可以直接把FontAwesome 的字体文件放在 assets 目录，但是把相同类型的文件放在专门的目录里面比较方便。只要FontAwesome 字体在assets 或者子目录之下就行。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/08/Font-Awesome/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/23/AndroidMVPSample/" itemprop="url">
-                Android MVP 实例
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-09-23T16:28:22+08:00" content="2015-09-23">
-            2015-09-23
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/23/AndroidMVPSample/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/23/AndroidMVPSample/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h1 id="Android_MVP_实例">Android MVP 实例</h1><p>简单的请求天气功能，演示Android MVP是如何使用的</p>
-<h1 id="效果预览">效果预览</h1><p><img src="https://github.com/WuXiaolong/AndroidMVPSample/raw/master/screenshots.png" alt=""><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/23/AndroidMVPSample/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/5/">&raquo;</a>
   </nav>
 
 
@@ -1089,7 +1086,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">118</span>
+              <span class="site-state-item-count">121</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
