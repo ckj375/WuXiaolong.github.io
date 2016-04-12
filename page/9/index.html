@@ -205,90 +205,6 @@
           
           
             
-              <a class="post-title-link" href="/2015/04/23/CanvasToPhoto/" itemprop="url">
-                Android之Canvas中内容保存为图片
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-04-23T00:00:00+08:00" content="2015-04-23">
-            2015-04-23
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/04/23/CanvasToPhoto/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/23/CanvasToPhoto/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Bitmap bm = Bitmap.createBitmap(<span class="number">320</span>, <span class="number">480</span>, Config.ARGB_8888);  </span><br><span class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(bm);  </span><br><span class="line">        Paint p = <span class="keyword">new</span> Paint();  </span><br><span class="line">        canvas.drawRect(<span class="number">50</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">200</span>, p);  </span><br><span class="line">        canvas.save(Canvas.ALL_SAVE_FLAG );  </span><br><span class="line">        canvas.restore();  </span><br><span class="line">          </span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">"/sdcard/0.png"</span>);  </span><br><span class="line">        FileOutputStream fos = <span class="keyword">null</span>;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            fos = <span class="keyword">new</span> FileOutputStream(f);  </span><br><span class="line">            bm.compress(Bitmap.CompressFormat.PNG, <span class="number">50</span>, fos);  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;  </span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block  </span></span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">// 其次把文件插入到系统图库</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MediaStore.Images.Media.insertImage(context.getContentResolver(),</span><br><span class="line">				file.getAbsolutePath(), fileName, <span class="keyword">null</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 最后通知图库更新</span></span><br><span class="line">    context.sendBroadcast(<span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(<span class="string">"file://"</span> + path)));</span><br></pre></td></tr></table></figure>
-<p>这样就把Canvas中的内容保存成了sd卡上的一个png图片。简单说一下原理，自己create一个bitmap，然后让Canvas通过这个bitmap创建一个实例，然后在该canvas上绘制的内容都会画<br>在该bitmap上，保存Canvas的图层，然后把bitmap写到sd卡上的文件。注意：要在AndroidManifest.xml中添加在sd卡上读写文件的权限</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;     </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span>     </span><br><span class="line"><span class="comment">&lt;!-- 往SDCard写入数据权限 --&gt;</span>     </span><br><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>Canvas加入图片</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Canvas canvas;</span><br><span class="line">Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.pic180);  </span><br><span class="line">            canvas.drawColor(Color.BLACK);  </span><br><span class="line">            canvas.drawBitmap(bmp, <span class="number">10</span>, <span class="number">10</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2015/04/23/LayoutInflater/" itemprop="url">
                 Android之LayoutInflate
               </a>
@@ -347,6 +263,177 @@
               阅读全文 &raquo;
             </a>
           </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/04/23/weiyan/" itemprop="url">
+                微言
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-04-23T00:00:00+08:00" content="2015-04-23">
+            2015-04-23
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/App/" itemprop="url" rel="index"><span itemprop="name">App</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/04/23/weiyan/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/23/weiyan/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>微言算我第一个个人App，当初的初衷，想通过这个App达到练手，并熟悉Android项目的创建到发布上线的整个流程。<br>现在我想达到了预期甚至超过了，至今我还在维护这个项目。<br>至于做成什么样子的应用，一开始根本不知道，更不知道“产品”，主观意识做一款励志的，<br>后来认知到产品概念，想把微言做的更好，而不是纯粹地练手，于是形成了现在这个样子的APP(<a href="http://app.mi.com/detail/25323">效果预览</a>)。<br>其实其中好多功能不是我凭空想出来的，是用户反馈的。<br>PS:万事开头难，没有行动之前，什么都觉得难！其实没想象的那么难，选准方向，勇往直前吧。</p>
+</blockquote>
+<h2 id="效果预览">效果预览</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanScreenshots.gif" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/23/weiyan/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/04/23/CanvasToPhoto/" itemprop="url">
+                Android之Canvas中内容保存为图片
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-04-23T00:00:00+08:00" content="2015-04-23">
+            2015-04-23
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/04/23/CanvasToPhoto/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/23/CanvasToPhoto/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Bitmap bm = Bitmap.createBitmap(<span class="number">320</span>, <span class="number">480</span>, Config.ARGB_8888);  </span><br><span class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(bm);  </span><br><span class="line">        Paint p = <span class="keyword">new</span> Paint();  </span><br><span class="line">        canvas.drawRect(<span class="number">50</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">200</span>, p);  </span><br><span class="line">        canvas.save(Canvas.ALL_SAVE_FLAG );  </span><br><span class="line">        canvas.restore();  </span><br><span class="line">          </span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">"/sdcard/0.png"</span>);  </span><br><span class="line">        FileOutputStream fos = <span class="keyword">null</span>;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            fos = <span class="keyword">new</span> FileOutputStream(f);  </span><br><span class="line">            bm.compress(Bitmap.CompressFormat.PNG, <span class="number">50</span>, fos);  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;  </span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block  </span></span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">// 其次把文件插入到系统图库</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MediaStore.Images.Media.insertImage(context.getContentResolver(),</span><br><span class="line">				file.getAbsolutePath(), fileName, <span class="keyword">null</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 最后通知图库更新</span></span><br><span class="line">    context.sendBroadcast(<span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(<span class="string">"file://"</span> + path)));</span><br></pre></td></tr></table></figure>
+<p>这样就把Canvas中的内容保存成了sd卡上的一个png图片。简单说一下原理，自己create一个bitmap，然后让Canvas通过这个bitmap创建一个实例，然后在该canvas上绘制的内容都会画<br>在该bitmap上，保存Canvas的图层，然后把bitmap写到sd卡上的文件。注意：要在AndroidManifest.xml中添加在sd卡上读写文件的权限</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;     </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span>     </span><br><span class="line"><span class="comment">&lt;!-- 往SDCard写入数据权限 --&gt;</span>     </span><br><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>Canvas加入图片</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Canvas canvas;</span><br><span class="line">Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.pic180);  </span><br><span class="line">            canvas.drawColor(Color.BLACK);  </span><br><span class="line">            canvas.drawBitmap(bmp, <span class="number">10</span>, <span class="number">10</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+</span>
         
       
     </div>
@@ -636,91 +723,6 @@
           
           
             
-              <a class="post-title-link" href="/2015/01/21/android-samples-download/" itemprop="url">
-                Android实战Samples之下载
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-01-21T00:00:00+08:00" content="2015-01-21">
-            2015-01-21
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/01/21/android-samples-download/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/21/android-samples-download/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>本Samples演示了如何在通知栏里下载，分为默认和自定义的。</p>
-<p>###效果图：<br><img src="http://wuxiaolong.qiniudn.com/2014-11-21-android-samples-download.gif" alt=""></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/01/21/android-samples-download/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2015/01/21/sdk-update/" itemprop="url">
                 解决Android Studio和Android SDK Manager无法在线更新
               </a>
@@ -775,6 +777,91 @@
 <p>修改安装目录下bin\studio.exe.vmoptions文件,如E:\Android\android-studio\bin\studio.exe.vmoptions</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/01/21/sdk-update/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/01/21/android-samples-download/" itemprop="url">
+                Android实战Samples之下载
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-01-21T00:00:00+08:00" content="2015-01-21">
+            2015-01-21
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/01/21/android-samples-download/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/21/android-samples-download/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>本Samples演示了如何在通知栏里下载，分为默认和自定义的。</p>
+<p>###效果图：<br><img src="http://wuxiaolong.qiniudn.com/2014-11-21-android-samples-download.gif" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/01/21/android-samples-download/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -965,92 +1052,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/01/12/google/" itemprop="url">
-                不花钱上谷歌
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-01-12T00:00:00+08:00" content="2015-01-12">
-            2015-01-12
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/01/12/google/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/12/google/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>&gt;<br>不会谷歌的程序猿不是好的程序猿!<br>&gt;</p>
-<p><img src="http://wuxiaolong.qiniudn.com/2015-01-12-google.png" alt=""><br>在大天朝，上谷歌竟成了一项”技能”，当然花钱另说，我当然不会花钱啦，之前goagent翻墙已经不好谷歌了，现在的方案是更改HOSTS（C:\Windows\System32\drivers\etc），复制以下Hosts文件替换即可：</p>
-<p><a href="http://pan.baidu.com/s/1o63Hqrg">http://pan.baidu.com/s/1o63Hqrg</a></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/01/12/google/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1091,7 +1092,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">121</span>
+              <span class="site-state-item-count">122</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1105,7 +1106,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">90</span>
+              <span class="site-state-item-count">91</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
