@@ -205,8 +205,92 @@
           
           
             
-              <a class="post-title-link" href="/2015/04/23/LayoutInflater/" itemprop="url">
-                Android之LayoutInflate
+              <a class="post-title-link" href="/2015/04/27/Split/" itemprop="url">
+                Android字符串分割
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-04-27T00:00:00+08:00" content="2015-04-27">
+            2015-04-27
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/04/27/Split/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/27/Split/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">split(<span class="string">"|"</span>)实现字符串分割</span><br></pre></td></tr></table></figure>
+<p>下面同样的效果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String chartest = <span class="string">"abcdefghijk"</span>;</span><br><span class="line">		<span class="keyword">char</span>[] chs = chartest.toCharArray();<span class="comment">// 注：这里一定要用char来定义。</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; chs.length; i++) &#123;</span><br><span class="line">			<span class="comment">// Log.d("wxl", "chs=========" + chs[i]);</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 输出: a b c d e f g h i j k</span></span><br></pre></td></tr></table></figure>
+<p>String[] strs = str.split(“\|\|”);</p>
+<p>就可以了。|在正则表达式里表示或者的意思，转一下就好了。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/04/23/CanvasToPhoto/" itemprop="url">
+                Android之Canvas中内容保存为图片
               </a>
             
           
@@ -238,8 +322,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/04/23/LayoutInflater/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/23/LayoutInflater/" itemprop="commentsCount"></span>
+              <a href="/2015/04/23/CanvasToPhoto/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/23/CanvasToPhoto/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -254,15 +338,12 @@
 
       
         
-          <p>【转载】<a href="http://blog.csdn.net/bigconvience/article/details/26582497">Android获取LayoutInflater对象的方法总结</a></p>
-<p>在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。</p>
-<p>1、若能获取context对象，可以有以下几种方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);  </span><br><span class="line">View child = inflater.inflate(R.layout.child, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/23/LayoutInflater/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          <span itemprop="articleBody"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Bitmap bm = Bitmap.createBitmap(<span class="number">320</span>, <span class="number">480</span>, Config.ARGB_8888);  </span><br><span class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(bm);  </span><br><span class="line">        Paint p = <span class="keyword">new</span> Paint();  </span><br><span class="line">        canvas.drawRect(<span class="number">50</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">200</span>, p);  </span><br><span class="line">        canvas.save(Canvas.ALL_SAVE_FLAG );  </span><br><span class="line">        canvas.restore();  </span><br><span class="line">          </span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">"/sdcard/0.png"</span>);  </span><br><span class="line">        FileOutputStream fos = <span class="keyword">null</span>;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            fos = <span class="keyword">new</span> FileOutputStream(f);  </span><br><span class="line">            bm.compress(Bitmap.CompressFormat.PNG, <span class="number">50</span>, fos);  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;  </span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block  </span></span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">// 其次把文件插入到系统图库</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MediaStore.Images.Media.insertImage(context.getContentResolver(),</span><br><span class="line">				file.getAbsolutePath(), fileName, <span class="keyword">null</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 最后通知图库更新</span></span><br><span class="line">    context.sendBroadcast(<span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(<span class="string">"file://"</span> + path)));</span><br></pre></td></tr></table></figure>
+<p>这样就把Canvas中的内容保存成了sd卡上的一个png图片。简单说一下原理，自己create一个bitmap，然后让Canvas通过这个bitmap创建一个实例，然后在该canvas上绘制的内容都会画<br>在该bitmap上，保存Canvas的图层，然后把bitmap写到sd卡上的文件。注意：要在AndroidManifest.xml中添加在sd卡上读写文件的权限</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;     </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span>     </span><br><span class="line"><span class="comment">&lt;!-- 往SDCard写入数据权限 --&gt;</span>     </span><br><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>Canvas加入图片</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Canvas canvas;</span><br><span class="line">Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.pic180);  </span><br><span class="line">            canvas.drawColor(Color.BLACK);  </span><br><span class="line">            canvas.drawBitmap(bmp, <span class="number">10</span>, <span class="number">10</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+</span>
         
       
     </div>
@@ -379,8 +460,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/04/23/CanvasToPhoto/" itemprop="url">
-                Android之Canvas中内容保存为图片
+              <a class="post-title-link" href="/2015/04/23/LayoutInflater/" itemprop="url">
+                Android之LayoutInflate
               </a>
             
           
@@ -412,8 +493,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/04/23/CanvasToPhoto/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/23/CanvasToPhoto/" itemprop="commentsCount"></span>
+              <a href="/2015/04/23/LayoutInflater/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/23/LayoutInflater/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -428,12 +509,15 @@
 
       
         
-          <span itemprop="articleBody"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Bitmap bm = Bitmap.createBitmap(<span class="number">320</span>, <span class="number">480</span>, Config.ARGB_8888);  </span><br><span class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(bm);  </span><br><span class="line">        Paint p = <span class="keyword">new</span> Paint();  </span><br><span class="line">        canvas.drawRect(<span class="number">50</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">200</span>, p);  </span><br><span class="line">        canvas.save(Canvas.ALL_SAVE_FLAG );  </span><br><span class="line">        canvas.restore();  </span><br><span class="line">          </span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">"/sdcard/0.png"</span>);  </span><br><span class="line">        FileOutputStream fos = <span class="keyword">null</span>;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            fos = <span class="keyword">new</span> FileOutputStream(f);  </span><br><span class="line">            bm.compress(Bitmap.CompressFormat.PNG, <span class="number">50</span>, fos);  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;  </span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block  </span></span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">// 其次把文件插入到系统图库</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MediaStore.Images.Media.insertImage(context.getContentResolver(),</span><br><span class="line">				file.getAbsolutePath(), fileName, <span class="keyword">null</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 最后通知图库更新</span></span><br><span class="line">    context.sendBroadcast(<span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(<span class="string">"file://"</span> + path)));</span><br></pre></td></tr></table></figure>
-<p>这样就把Canvas中的内容保存成了sd卡上的一个png图片。简单说一下原理，自己create一个bitmap，然后让Canvas通过这个bitmap创建一个实例，然后在该canvas上绘制的内容都会画<br>在该bitmap上，保存Canvas的图层，然后把bitmap写到sd卡上的文件。注意：要在AndroidManifest.xml中添加在sd卡上读写文件的权限</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;     </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span>     </span><br><span class="line"><span class="comment">&lt;!-- 往SDCard写入数据权限 --&gt;</span>     </span><br><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>Canvas加入图片</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Canvas canvas;</span><br><span class="line">Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.pic180);  </span><br><span class="line">            canvas.drawColor(Color.BLACK);  </span><br><span class="line">            canvas.drawBitmap(bmp, <span class="number">10</span>, <span class="number">10</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-</span>
+          <p>【转载】<a href="http://blog.csdn.net/bigconvience/article/details/26582497">Android获取LayoutInflater对象的方法总结</a></p>
+<p>在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。</p>
+<p>1、若能获取context对象，可以有以下几种方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);  </span><br><span class="line">View child = inflater.inflate(R.layout.child, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/23/LayoutInflater/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -971,87 +1055,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/01/13/Context-Activity/" itemprop="url">
-                Android下Context、Activity、Application之间有什么区别
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-01-13T00:00:00+08:00" content="2015-01-13">
-            2015-01-13
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/01/13/Context-Activity/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/13/Context-Activity/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>在开发Android程序的时候，我们经常要跟Context、Activity、Application这三个类打交道，那么这个三个类之间有什么联系和区别呢？</p>
-<p>首先Activity和Application都是Context的子类。Context从字面上理解就是上下文的意思，在实际应用中它也确实是起到了管理上下文环境中各个参数和变量的总用，方便我们可以简单的访问到各种资源。虽然Activity和Application都是Context的子类，但是他们维护的生命周期不一样。前者维护一个Acitivity的生命周期，所以其对应的Context也只能访问该activity内的各种资源。后者则是维护一个Application的证明周期。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1092,21 +1095,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">122</span>
+              <span class="site-state-item-count">123</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">91</span>
+              <span class="site-state-item-count">92</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
