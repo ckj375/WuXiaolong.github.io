@@ -205,90 +205,6 @@
           
           
             
-              <a class="post-title-link" href="/2014/06/30/custom-debug-keystore/" itemprop="url">
-                Eclipse ADT的Custom debug keystore所需证书规格
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-06-30T00:00:00+08:00" content="2014-06-30">
-            2014-06-30
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2014/06/30/custom-debug-keystore/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2014/06/30/custom-debug-keystore/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>自定义的调试证书，也需要保证和默认证书一样的密码，别名alias和别名密码。</p>
-<p>默认证书信息如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Keystore name: “debug.keystore”</span><br><span class="line">Keystore password: “android”</span><br><span class="line">Key alias: “androiddebugkey”</span><br><span class="line">Key password: “android”</span><br></pre></td></tr></table></figure>
-<p>遵循这个规则就可以用自定义调试证书了。</p>
-<p>Android apk签名方法<br><a href="http://hi.baidu.com/40406_jun/item/8b936db4a9a0e79b19469782" target="_blank" rel="external">http://hi.baidu.com/40406_jun/item/8b936db4a9a0e79b19469782</a></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2014/06/24/java-lang-IllegalStateException-Fragment-not-attached-to-Activity/" itemprop="url">
                 java.lang.IllegalStateException:Fragment（XXFragment） not attached to Activity
               </a>
@@ -1043,6 +959,91 @@
 
 
     
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2013/07/09/shape/" itemprop="url">
+                Android之美化控件Shape
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2013-07-09T00:00:00+08:00" content="2013-07-09">
+            2013-07-09
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2013/07/09/shape/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2013/07/09/shape/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>除了使用drawable这样的图片外，随着图片资源增多，程序也越来越大，今天我们自定义图形shape的方法。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;shape&gt;</span><br><span class="line">           &lt;!-- 实心 --&gt;</span><br><span class="line">           &lt;solid android:color="#ff9d77"/&gt;</span><br><span class="line">           &lt;!-- 渐变 --&gt;</span><br><span class="line">           &lt;gradient</span><br><span class="line">               android:startColor="#ff8c00"</span><br><span class="line">               android:endColor="#FFFFFF"</span><br><span class="line">               android:angle="270" /&gt;</span><br><span class="line">           &lt;!-- 描边 --&gt;</span><br><span class="line">           &lt;stroke</span><br><span class="line">               android:width="2dp"</span><br><span class="line">               android:color="#dcdcdc" /&gt;</span><br><span class="line">           &lt;!-- 圆角 --&gt;</span><br><span class="line">           &lt;corners</span><br><span class="line">               android:radius="2dp" /&gt;</span><br><span class="line">           &lt;padding</span><br><span class="line">               android:left="10dp"</span><br><span class="line">               android:top="10dp"</span><br><span class="line">               android:right="10dp"</span><br><span class="line">               android:bottom="10dp" /&gt;</span><br><span class="line">       &lt;/shape&gt;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2013/07/09/shape/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1083,7 +1084,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">124</span>
+              <span class="site-state-item-count">123</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
