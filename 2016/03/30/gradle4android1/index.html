@@ -49,7 +49,7 @@
 基本配置新建项目">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android1.png">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg">
-<meta property="og:updated_time" content="2016-04-07T09:05:14.844Z">
+<meta property="og:updated_time" content="2016-04-22T02:19:39.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle for Android（一）基本配置、依赖管理">
 <meta name="twitter:description" content="Gradle是一种基于Groovy的动态DSL，而Groovy语言是一种基于jvm的动态语言。这里只分享实际开发中会用到的场景，您不需要去学习Groovy语言，知道Java的您是很容易阅读Groovy语言的。系列博客涉及的知识点有：Gradle基本配置、依赖管理、全局设置、自定义BuildConfig、混淆、多渠道打包、配置签名信息、单元测试，是不是迫不及待了啊，快来学习学习。
@@ -269,10 +269,10 @@
 <h2 id="setting-gradle">setting.gradle</h2><p>包含哪些模块，比如有app和library：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">':app'</span>,<span class="string">':library'</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="依赖管理">依赖管理</h1><h2 id="本地依赖">本地依赖</h2><h3 id="jar">jar</h3><p>默认情况下，新建的Android项目会有一个lib文件夹<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">       <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])<span class="comment">//即添加所有在libs文件夹中的jar</span></span><br><span class="line">       <span class="comment">//compile files('libs/WuXiaolong.jar')//不需要这样一个个去写了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="so包">so包</h3><p>用c或者c++写的library会被叫做so包，Android插件默认情况下支持native包，你需要把.so文件放在对应的文件夹中<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app</span><br><span class="line">   ├── AndroidManifest<span class="class">.xml</span></span><br><span class="line">   └── jniLibs</span><br><span class="line">       ├── armeabi</span><br><span class="line">       │   └── WuXiaolong<span class="class">.so</span></span><br><span class="line">       ├── armeabi-v7a</span><br><span class="line">       │   └── WuXiaolong<span class="class">.so</span></span><br><span class="line">       ├── mips</span><br><span class="line">       │   └── WuXiaolong<span class="class">.so</span></span><br><span class="line">       └── x86</span><br><span class="line">           └── WuXiaolong.so</span><br></pre></td></tr></table></figure></p>
-<h3 id="aar文件">aar文件</h3><p>library库输出文件是.aar文件，在library工程build/output/aar/下</p>
-<p>直接依赖library<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">       <span class="keyword">compile</span> <span class="keyword">project</span>(<span class="string">':library名字'</span>)</span><br><span class="line">       <span class="keyword">compile</span> <span class="keyword">project</span>(<span class="string">':libraries:library名字'</span>)<span class="comment">//多个library，libraries是文件夹名字</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>依赖.aar文件<br>创建一个aars文件夹，然后把.aar文件拷贝到该文件夹里面，然后添加该文件夹作为依赖库：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">repositories</span> &#123;</span><br><span class="line">    <span class="title">flatDir</span> &#123;</span><br><span class="line">        <span class="title">dirs</span> <span class="string">'aars'</span> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>或者：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">dependencies</span> &#123;</span><br><span class="line">       <span class="keyword">compile</span>(name:<span class="string">'libraryname'</span>, ext:<span class="string">'aar'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="aar文件">aar文件</h3><p>library库输出文件是.aar文件，包含了Android 资源文件，在library工程build/output/aar/下</p>
+<p>直接依赖library库<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">       <span class="keyword">compile</span> <span class="keyword">project</span>(<span class="string">':library名字'</span>)</span><br><span class="line">       <span class="keyword">compile</span> <span class="keyword">project</span>(<span class="string">':libraries:library名字'</span>)<span class="comment">//多个library，libraries是文件夹名字</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>依赖.aar文件<br>创建一个aars文件夹，然后把.aar文件拷贝到该文件夹里面，然后添加该文件夹作为依赖库：<br>app/bulid.gradle<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">repositories</span> &#123;</span><br><span class="line">    <span class="keyword">flatDir</span> &#123;</span><br><span class="line">        dirs <span class="string">'aars'</span> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">       <span class="keyword">compile</span>(name:<span class="string">'libraryname'</span>, ext:<span class="string">'aar'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意：如果你的library依赖了第三方库，须app再次依赖。</p>
 <h2 id="远程仓库">远程仓库</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">		<span class="keyword">compile</span> <span class="string">'com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="AndroidProgrammer">AndroidProgrammer</h1><p>我的微信公众号：Android高手进阶之路，让我们共同学习，每天进步一点点。欢迎微信扫一扫关注。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg" alt=""></p>
 <h1 id="关于作者">关于作者</h1><p><a href="http://wuxiaolong.me/about/">点击查看</a></p>
@@ -389,21 +389,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">123</span>
+              <span class="site-state-item-count">124</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">93</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

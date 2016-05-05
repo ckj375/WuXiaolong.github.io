@@ -205,6 +205,91 @@
           
           
             
+              <a class="post-title-link" href="/2015/04/28/LoadMoreListView/" itemprop="url">
+                Android之LoadMoreListView
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-04-28T00:00:00+08:00" content="2015-04-28">
+            2015-04-28
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/04/28/LoadMoreListView/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/28/LoadMoreListView/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Android load more ListView when scroll down.</span><br><span class="line"> * </span><br><span class="line"> * <span class="doctag">@author</span> Charon Chui</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoadMoreListView</span> <span class="keyword">extends</span> <span class="title">ListView</span> </span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"LoadMoreListView"</span>;</span><br><span class="line">	<span class="keyword">private</span> View mFooterView;</span><br><span class="line">	<span class="keyword">private</span> OnScrollListener mOnScrollListener;</span><br><span class="line">	<span class="keyword">private</span> OnLoadMoreListener mOnLoadMoreListener;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * If is loading now.</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> mIsLoading;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> mCurrentScrollState;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LoadMoreListView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context, attrs, defStyle);</span><br><span class="line">		init(context);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LoadMoreListView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context, attrs);</span><br><span class="line">		init(context);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LoadMoreListView</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context);</span><br><span class="line">		init(context);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">		mFooterView = View.inflate(context, R.layout.load_more_footer, <span class="keyword">null</span>);</span><br><span class="line">		addFooterView(mFooterView);</span><br><span class="line">		hideFooterView();</span><br><span class="line">		<span class="comment">/*</span><br><span class="line">		 * Must use super.setOnScrollListener() here to avoid override when call</span><br><span class="line">		 * this view's setOnScrollListener method</span><br><span class="line">		 */</span></span><br><span class="line">		<span class="keyword">super</span>.setOnScrollListener(superOnScrollListener);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * Hide the load more view(footer view)</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">hideFooterView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		mFooterView.setVisibility(View.GONE);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * Show load more view</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showFooterView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		mFooterView.setVisibility(View.VISIBLE);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnScrollListener</span><span class="params">(OnScrollListener l)</span> </span>&#123;</span><br><span class="line">		mOnScrollListener = l;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * Set load more listener, usually you should get more data here.</span><br><span class="line">	 * </span><br><span class="line">	 * <span class="doctag">@param</span> listener</span><br><span class="line">	 *            OnLoadMoreListener</span><br><span class="line">	 * <span class="doctag">@see</span> OnLoadMoreListener</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnLoadMoreListener</span><span class="params">(OnLoadMoreListener listener)</span> </span>&#123;</span><br><span class="line">		mOnLoadMoreListener = listener;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * When complete load more data, you must use this method to hide the footer</span><br><span class="line">	 * view, if not the footer view will be shown all the time.</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoadMoreComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		mIsLoading = <span class="keyword">false</span>;</span><br><span class="line">		hideFooterView();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> OnScrollListener superOnScrollListener = <span class="keyword">new</span> OnScrollListener() &#123;</span><br><span class="line"></span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrollStateChanged</span><span class="params">(AbsListView view, <span class="keyword">int</span> scrollState)</span> </span>&#123;</span><br><span class="line">			mCurrentScrollState = scrollState;</span><br><span class="line">			<span class="comment">// Avoid override when use setOnScrollListener</span></span><br><span class="line">			<span class="keyword">if</span> (mOnScrollListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">				mOnScrollListener.onScrollStateChanged(view, scrollState);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScroll</span><span class="params">(AbsListView view, <span class="keyword">int</span> firstVisibleItem,</span><br><span class="line">				<span class="keyword">int</span> visibleItemCount, <span class="keyword">int</span> totalItemCount)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (mOnScrollListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">				mOnScrollListener.onScroll(view, firstVisibleItem,</span><br><span class="line">						visibleItemCount, totalItemCount);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">// The count of footer view will be add to visibleItemCount also are</span></span><br><span class="line">			<span class="comment">// added to totalItemCount</span></span><br><span class="line">			<span class="keyword">if</span> (visibleItemCount == totalItemCount) &#123;</span><br><span class="line">				<span class="comment">// If all the item can not fill screen, we should make the</span></span><br><span class="line">				<span class="comment">// footer view invisible.</span></span><br><span class="line">				hideFooterView();</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!mIsLoading</span><br><span class="line">					&amp;&amp; (firstVisibleItem + visibleItemCount &gt;= totalItemCount)</span><br><span class="line">					&amp;&amp; mCurrentScrollState != SCROLL_STATE_IDLE) &#123;</span><br><span class="line">				showFooterView();</span><br><span class="line">				mIsLoading = <span class="keyword">true</span>;</span><br><span class="line">				<span class="keyword">if</span> (mOnLoadMoreListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">					mOnLoadMoreListener.onLoadMore();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * Interface for load more</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnLoadMoreListener</span> </span>&#123;</span><br><span class="line">		<span class="comment">/**</span><br><span class="line">		 * Load more data.</span><br><span class="line">		 */</span></span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">onLoadMore</span><span class="params">()</span></span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/28/LoadMoreListView/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/04/27/Split/" itemprop="url">
                 Android字符串分割
               </a>
@@ -967,94 +1052,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/01/14/wochat/" itemprop="url">
-                Android基于XMPP即时通讯应用（一）【openfire服务器配置】
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-01-14T00:00:00+08:00" content="2015-01-14">
-            2015-01-14
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/01/14/wochat/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/14/wochat/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>OpenFire 是采用Java开发的基于XMPP（Jabber）协议，开源实时协作（RTC）服务器。</p>
-<p>Smack 是用 Java编 写的XMPP客户端代码库，是 spark 的核心</p>
-<p>开源界总是有许多有趣的东东，这三个合起来就是一个完整的XMPP IM 实现。</p>
-<p>OpenFire ——服务器端<br>Spark——客户端</p>
-<p>Smack——XMPP 传输协议的实现</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/01/14/wochat/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1095,21 +1092,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">123</span>
+              <span class="site-state-item-count">124</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">93</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
