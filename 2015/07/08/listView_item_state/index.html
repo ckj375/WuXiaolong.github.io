@@ -47,7 +47,8 @@
 <meta property="og:description" content="本文是实际开发遇到的问题，结合情景，给出解决方案，很有启示作用。
 
 1、比如列表有收藏按钮，当前页面收藏12345private List&amp;lt;Map&amp;lt;String, String&amp;gt;&amp;gt; mList = new ArrayList&amp;lt;&amp;gt;();...  //走收藏接口，在成功后，只更改刚刚点击的item的收藏按钮状态  mList.get(position).put(&quot;f">
-<meta property="og:updated_time" content="2016-05-03T01:36:11.114Z">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg">
+<meta property="og:updated_time" content="2016-05-06T03:30:58.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刷新RecyclerView/ListView某个item状态">
 <meta name="twitter:description" content="本文是实际开发遇到的问题，结合情景，给出解决方案，很有启示作用。
@@ -275,6 +276,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:orientation</span>=<span class="value">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/textview"</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"60dp"</span></span><br><span class="line">        <span class="attribute">android:layout_gravity</span>=<span class="value">"center_vertical"</span></span><br><span class="line">        <span class="attribute">android:gravity</span>=<span class="value">"center_vertical"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <h2 id="RecyclerView局部刷新">RecyclerView局部刷新</h2><p>RecyclerView已经替代了ListView，局部刷新很有必要知道</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//收藏成功后</span></span><br><span class="line">mList.get(position).put(<span class="string">"favorites"</span>, <span class="string">"0"</span>);<span class="comment">//直接更改数据源</span></span><br><span class="line">ViewHolder viewHolder = (ViewHolder) mRecyclerView.findViewHolderForAdapterPosition(position); <span class="comment">//得到要更新的item的view</span></span><br><span class="line">viewHolder.mCheck.setBackgroundResource(R.mipmap.collect_normal);<span class="comment">//更改状态</span></span><br></pre></td></tr></table></figure>
+<h1 id="AndroidProgrammer">AndroidProgrammer</h1><p>我的微信公众号：Android高手进阶之路，让我们共同学习，每天进步一点点。欢迎微信扫一扫关注。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg" alt=""></p>
+<h1 id="关于作者">关于作者</h1><p><a href="http://wuxiaolong.me/about/">点击查看</a></p>
 </span>
       
     </div>
@@ -294,13 +297,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/08/TimeUtil/" rel="prev">时间工具类TimeUtil</a>
+              <a href="/2015/07/09/phone_space/" rel="prev">EditText输入手机号自动带空格</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/10/checkPermission/" rel="next">Android判断权限被限制</a>
+              <a href="/2015/07/08/TimeUtil/" rel="next">时间工具类TimeUtil</a>
             
           </div>
         </div>
@@ -388,14 +391,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">123</span>
+              <span class="site-state-item-count">124</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
@@ -459,7 +462,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、比如列表有收藏按钮，当前页面收藏"><span class="nav-number">1.</span> <span class="nav-text">1、比如列表有收藏按钮，当前页面收藏</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、比如列表有收藏按钮，下个页面也有收藏功能"><span class="nav-number">2.</span> <span class="nav-text">2、比如列表有收藏按钮，下个页面也有收藏功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、以上只是未重新请求接口下刷新View，未真正局部刷新"><span class="nav-number">3.</span> <span class="nav-text">3、以上只是未重新请求接口下刷新View，未真正局部刷新</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ListView局部刷新"><span class="nav-number">3.1.</span> <span class="nav-text">ListView局部刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RecyclerView局部刷新"><span class="nav-number">3.2.</span> <span class="nav-text">RecyclerView局部刷新</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、比如列表有收藏按钮，当前页面收藏"><span class="nav-number">1.</span> <span class="nav-text">1、比如列表有收藏按钮，当前页面收藏</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、比如列表有收藏按钮，下个页面也有收藏功能"><span class="nav-number">2.</span> <span class="nav-text">2、比如列表有收藏按钮，下个页面也有收藏功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、以上只是未重新请求接口下刷新View，未真正局部刷新"><span class="nav-number">3.</span> <span class="nav-text">3、以上只是未重新请求接口下刷新View，未真正局部刷新</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ListView局部刷新"><span class="nav-number">3.1.</span> <span class="nav-text">ListView局部刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RecyclerView局部刷新"><span class="nav-number">3.2.</span> <span class="nav-text">RecyclerView局部刷新</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidProgrammer"><span class="nav-number">4.</span> <span class="nav-text">AndroidProgrammer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于作者"><span class="nav-number">5.</span> <span class="nav-text">关于作者</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
