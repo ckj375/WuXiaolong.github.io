@@ -205,8 +205,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/07/08/listView_item_state/" itemprop="url">
-                刷新RecyclerView/ListView某个item状态
+              <a class="post-title-link" href="/2015/07/13/SavingFiles/" itemprop="url">
+                Saving Data-Saving Files
               </a>
             
           
@@ -216,8 +216,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-07-08T00:00:00+08:00" content="2015-07-08">
-            2015-07-08
+          <time itemprop="dateCreated" datetime="2015-07-13T00:00:00+08:00" content="2015-07-13">
+            2015-07-13
           </time>
         </span>
 
@@ -238,8 +238,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/07/08/listView_item_state/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/08/listView_item_state/" itemprop="commentsCount"></span>
+              <a href="/2015/07/13/SavingFiles/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/13/SavingFiles/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -255,11 +255,97 @@
       
         
           <blockquote>
-<p>本文是实际开发遇到的问题，结合情景，给出解决方案，很有启示作用。</p>
+<p>微言App中有个阅读量的功能，是直接将用户的阅读量保存在SD卡上，我封装成了工具类。</p>
 </blockquote>
-<h1 id="1、比如列表有收藏按钮，当前页面收藏">1、比如列表有收藏按钮，当前页面收藏</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> List&lt;Map&lt;String, String&gt;&gt; mList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">...</span><br><span class="line">  <span class="comment">//走收藏接口，在成功后，只更改刚刚点击的item的收藏按钮状态</span></span><br><span class="line">  mList.get(position).put(<span class="string">"favorites"</span>, <span class="string">"1"</span>);</span><br><span class="line">  notifyDataSetChanged();</span><br></pre></td></tr></table></figure>
+<h2 id="效果预览">效果预览</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanAppScreenshots.gif" alt=""></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/08/listView_item_state/" rel="contents">
+            <a class="btn" href="/2015/07/13/SavingFiles/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/09/phone_space/" itemprop="url">
+                EditText输入手机号自动带空格
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-07-09T00:00:00+08:00" content="2015-07-09">
+            2015-07-09
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/07/09/phone_space/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/09/phone_space/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>转载：<a href="http://www.jcodecraeer.com/plus/view.php?aid=3163">http://www.jcodecraeer.com/plus/view.php?aid=3163</a></p>
+<p>在android开发过程中，经常会要求用户输入手机号，为了便于观看，我们都会已135 xxxx xxxx这种格式展示。</p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/20150709_phone_space.png" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/09/phone_space/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -372,8 +458,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/06/10/fragmentMenu/" itemprop="url">
-                Fragment里更改Activity菜单
+              <a class="post-title-link" href="/2015/07/08/listView_item_state/" itemprop="url">
+                刷新RecyclerView/ListView某个item状态
               </a>
             
           
@@ -383,8 +469,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-06-10T00:00:00+08:00" content="2015-06-10">
-            2015-06-10
+          <time itemprop="dateCreated" datetime="2015-07-08T00:00:00+08:00" content="2015-07-08">
+            2015-07-08
           </time>
         </span>
 
@@ -405,8 +491,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/06/10/fragmentMenu/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/fragmentMenu/" itemprop="commentsCount"></span>
+              <a href="/2015/07/08/listView_item_state/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/08/listView_item_state/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -421,8 +507,15 @@
 
       
         
-          <span itemprop="articleBody"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">       <span class="comment">//来指出fragment愿意添加item到选项菜单(否则, fragment将接收不到对 onCreateOptionsMenu()的调用)</span></span><br><span class="line">       setHasOptionsMenu(<span class="keyword">true</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu, MenuInflater inflater)</span> </span>&#123;</span><br><span class="line">       getActivity().getMenuInflater().inflate(R.menu.menu_yuqing_search, menu);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</span>
+          <blockquote>
+<p>本文是实际开发遇到的问题，结合情景，给出解决方案，很有启示作用。</p>
+</blockquote>
+<h1 id="1、比如列表有收藏按钮，当前页面收藏">1、比如列表有收藏按钮，当前页面收藏</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> List&lt;Map&lt;String, String&gt;&gt; mList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">...</span><br><span class="line">  <span class="comment">//走收藏接口，在成功后，只更改刚刚点击的item的收藏按钮状态</span></span><br><span class="line">  mList.get(position).put(<span class="string">"favorites"</span>, <span class="string">"1"</span>);</span><br><span class="line">  notifyDataSetChanged();</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/08/listView_item_state/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -509,6 +602,86 @@
               阅读全文 &raquo;
             </a>
           </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/10/fragmentMenu/" itemprop="url">
+                Fragment里更改Activity菜单
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-10T00:00:00+08:00" content="2015-06-10">
+            2015-06-10
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/10/fragmentMenu/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/fragmentMenu/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">       <span class="comment">//来指出fragment愿意添加item到选项菜单(否则, fragment将接收不到对 onCreateOptionsMenu()的调用)</span></span><br><span class="line">       setHasOptionsMenu(<span class="keyword">true</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu, MenuInflater inflater)</span> </span>&#123;</span><br><span class="line">       getActivity().getMenuInflater().inflate(R.menu.menu_yuqing_search, menu);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</span>
         
       
     </div>
@@ -867,177 +1040,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/30/ResResources/" itemprop="url">
-                android获取 res 中的资源
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-04-30T00:00:00+08:00" content="2015-04-30">
-            2015-04-30
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/04/30/ResResources/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/30/ResResources/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="如何获取_res_中的资源">如何获取 res 中的资源</h3><p>数据包package：android.content.res</p>
-<h3 id="主要类：Resources">主要类：Resources</h3><p>其主要接口按照功能，划分为以下三部分：</p>
-<p>getXXXX()</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/30/ResResources/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/28/LoadMoreListView/" itemprop="url">
-                Android之LoadMoreListView
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-04-28T00:00:00+08:00" content="2015-04-28">
-            2015-04-28
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/04/28/LoadMoreListView/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/28/LoadMoreListView/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Android load more ListView when scroll down.</span><br><span class="line"> * </span><br><span class="line"> * <span class="doctag">@author</span> Charon Chui</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoadMoreListView</span> <span class="keyword">extends</span> <span class="title">ListView</span> </span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"LoadMoreListView"</span>;</span><br><span class="line">	<span class="keyword">private</span> View mFooterView;</span><br><span class="line">	<span class="keyword">private</span> OnScrollListener mOnScrollListener;</span><br><span class="line">	<span class="keyword">private</span> OnLoadMoreListener mOnLoadMoreListener;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * If is loading now.</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> mIsLoading;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> mCurrentScrollState;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LoadMoreListView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context, attrs, defStyle);</span><br><span class="line">		init(context);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LoadMoreListView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context, attrs);</span><br><span class="line">		init(context);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LoadMoreListView</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context);</span><br><span class="line">		init(context);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">		mFooterView = View.inflate(context, R.layout.load_more_footer, <span class="keyword">null</span>);</span><br><span class="line">		addFooterView(mFooterView);</span><br><span class="line">		hideFooterView();</span><br><span class="line">		<span class="comment">/*</span><br><span class="line">		 * Must use super.setOnScrollListener() here to avoid override when call</span><br><span class="line">		 * this view's setOnScrollListener method</span><br><span class="line">		 */</span></span><br><span class="line">		<span class="keyword">super</span>.setOnScrollListener(superOnScrollListener);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * Hide the load more view(footer view)</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">hideFooterView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		mFooterView.setVisibility(View.GONE);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * Show load more view</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showFooterView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		mFooterView.setVisibility(View.VISIBLE);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnScrollListener</span><span class="params">(OnScrollListener l)</span> </span>&#123;</span><br><span class="line">		mOnScrollListener = l;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * Set load more listener, usually you should get more data here.</span><br><span class="line">	 * </span><br><span class="line">	 * <span class="doctag">@param</span> listener</span><br><span class="line">	 *            OnLoadMoreListener</span><br><span class="line">	 * <span class="doctag">@see</span> OnLoadMoreListener</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnLoadMoreListener</span><span class="params">(OnLoadMoreListener listener)</span> </span>&#123;</span><br><span class="line">		mOnLoadMoreListener = listener;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * When complete load more data, you must use this method to hide the footer</span><br><span class="line">	 * view, if not the footer view will be shown all the time.</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoadMoreComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		mIsLoading = <span class="keyword">false</span>;</span><br><span class="line">		hideFooterView();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> OnScrollListener superOnScrollListener = <span class="keyword">new</span> OnScrollListener() &#123;</span><br><span class="line"></span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrollStateChanged</span><span class="params">(AbsListView view, <span class="keyword">int</span> scrollState)</span> </span>&#123;</span><br><span class="line">			mCurrentScrollState = scrollState;</span><br><span class="line">			<span class="comment">// Avoid override when use setOnScrollListener</span></span><br><span class="line">			<span class="keyword">if</span> (mOnScrollListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">				mOnScrollListener.onScrollStateChanged(view, scrollState);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScroll</span><span class="params">(AbsListView view, <span class="keyword">int</span> firstVisibleItem,</span><br><span class="line">				<span class="keyword">int</span> visibleItemCount, <span class="keyword">int</span> totalItemCount)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (mOnScrollListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">				mOnScrollListener.onScroll(view, firstVisibleItem,</span><br><span class="line">						visibleItemCount, totalItemCount);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">// The count of footer view will be add to visibleItemCount also are</span></span><br><span class="line">			<span class="comment">// added to totalItemCount</span></span><br><span class="line">			<span class="keyword">if</span> (visibleItemCount == totalItemCount) &#123;</span><br><span class="line">				<span class="comment">// If all the item can not fill screen, we should make the</span></span><br><span class="line">				<span class="comment">// footer view invisible.</span></span><br><span class="line">				hideFooterView();</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!mIsLoading</span><br><span class="line">					&amp;&amp; (firstVisibleItem + visibleItemCount &gt;= totalItemCount)</span><br><span class="line">					&amp;&amp; mCurrentScrollState != SCROLL_STATE_IDLE) &#123;</span><br><span class="line">				showFooterView();</span><br><span class="line">				mIsLoading = <span class="keyword">true</span>;</span><br><span class="line">				<span class="keyword">if</span> (mOnLoadMoreListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">					mOnLoadMoreListener.onLoadMore();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * Interface for load more</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnLoadMoreListener</span> </span>&#123;</span><br><span class="line">		<span class="comment">/**</span><br><span class="line">		 * Load more data.</span><br><span class="line">		 */</span></span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">onLoadMore</span><span class="params">()</span></span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/28/LoadMoreListView/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1078,7 +1080,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">124</span>
+              <span class="site-state-item-count">126</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1092,7 +1094,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">93</span>
+              <span class="site-state-item-count">94</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
