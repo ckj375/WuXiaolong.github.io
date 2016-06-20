@@ -45,10 +45,10 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="关于MVP、Retrofit、RxJava，之前已经分别做了分享，如果您还没有阅读过，可以猛戳：1、Android MVP 实例2、Android Retrofit 2.0使用3、RxJava4、RxBus
 假设，您对MVP、Retrofit、RxJava已经有了一点了解，那么我们开始本文：">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/androidmvpsample2.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/androidmvpsample2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/mvpRetrofitRxjava1.jpg">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidProgrammerLogo.jpg">
-<meta property="og:updated_time" content="2016-06-12T07:46:54.979Z">
+<meta property="og:updated_time" content="2016-06-20T09:17:53.858Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android MVP+Retrofit+RxJava实践小结">
 <meta name="twitter:description" content="关于MVP、Retrofit、RxJava，之前已经分别做了分享，如果您还没有阅读过，可以猛戳：1、Android MVP 实例2、Android Retrofit 2.0使用3、RxJava4、RxBus
@@ -259,7 +259,7 @@
         <span itemprop="articleBody"><p>关于MVP、Retrofit、RxJava，之前已经分别做了分享，如果您还没有阅读过，可以猛戳：<br>1、<a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/">Android MVP 实例</a><br>2、<a href="http://wuxiaolong.me/2016/01/15/retrofit/">Android Retrofit 2.0使用</a><br>3、<a href="http://wuxiaolong.me/2016/01/18/rxjava/">RxJava</a><br>4、<a href="http://wuxiaolong.me/2016/04/07/rxbus/">RxBus</a></p>
 <p>假设，您对MVP、Retrofit、RxJava已经有了一点了解，那么我们开始本文：<br><a id="more"></a></p>
 <h1 id="Android_MVP优化">Android MVP优化</h1><p>1、MVP绑定Activity（Fragment）生命周期<br>按照之前的文章，每个Presenter都得初始化和销毁，我新加MvpActivity(MvpFragment)，加了抽象方法<code>protected abstract P createPresenter();</code>这样做的目的在需要使用MVP的地方，可以继承MvpActivity(MvpFragment)，然后初始化和销毁就不用手动一个个去加了。</p>
-<p>2、接口请求等还是放到MVP的P中<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/androidmvpsample2.png" alt=""><br>这个图片，在当时写MVP文章时给出的，实际开发中，我发现每个都这样写，实在是增加了不少代码，然接口请求放到P中，还有个好处，就是MVP绑定Activity（Fragment）生命周期，当onDestroy时取消RXJava注册，以避免内存泄露。</p>
+<p>2、接口请求等还是放到MVP的P中<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/androidmvpsample2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>这个图片，在当时写MVP文章时给出的，实际开发中，我发现每个都这样写，实在是增加了不少代码，然接口请求放到P中，还有个好处，就是MVP绑定Activity（Fragment）生命周期，当onDestroy时取消RXJava注册，以避免内存泄露。</p>
 <h1 id="代码">代码</h1><h2 id="目录结构">目录结构</h2><p>如图，有个大致了解：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/mvpRetrofitRxjava1.jpg" alt=""><br>mvp：所有的mvp都放在这个包下<br>retrofit：Retrofit接口和配置文件<br>rxjava：RxJava一些回调设置<br>ui：Activity或fragment，建议按功能再细分包</p>
 <h2 id="核心代码">核心代码</h2><p>还是就贴出核心代码吧，源码在我的github上（<a href="https://github.com/WuXiaolong/AndroidMVPSample" target="_blank" rel="external">https://github.com/WuXiaolong/AndroidMVPSample</a>）。</p>
 <p>MainActivity入口，还是演示的之前的MVP的天气的接口，接口请求方法放在Presenter。</p>
