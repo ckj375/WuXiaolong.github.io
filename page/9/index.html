@@ -205,6 +205,90 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/12/AdFund/" itemprop="url">
+                广告基金
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-05-12T00:00:00+08:00" content="2015-05-12">
+            2015-05-12
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/05/12/AdFund/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/12/AdFund/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><blockquote>
+<p>我很想买mac，但是暂时经济紧张，于是心里想，今年我的广告费什么时候攒够了，就买。求赞助，求包养T_T</p>
+</blockquote>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AdFund1.png" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AdFund2.png" alt="收益截图"></p>
+<p>广告总收益：22563.65+1933.53=24497.18（另外还有芒果聚合、点乐积分、多盟，都太少了，这里不计）</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/05/06/Defining_Custom_Animations/" itemprop="url">
                 Android Defining Custom Animations
               </a>
@@ -967,92 +1051,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/17/CustomToast/" itemprop="url">
-                Android之CustomToast
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-04-17T00:00:00+08:00" content="2015-04-17">
-            2015-04-17
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/04/17/CustomToast/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/17/CustomToast/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>一、简单的CustomToast</p>
-<p>Java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomToast</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String tip = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">private</span> Activity activity;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> duration;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CustomToast</span><span class="params">(Activity activity, String tip, <span class="keyword">int</span> duration)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.tip = tip;</span><br><span class="line">		<span class="keyword">this</span>.activity = activity;</span><br><span class="line">		<span class="keyword">this</span>.duration = duration;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@SuppressLint</span>(<span class="string">"InflateParams"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		LayoutInflater inflater = activity.getLayoutInflater();</span><br><span class="line">		View view = inflater.inflate(R.layout.custom_toast, <span class="keyword">null</span>);</span><br><span class="line">		TextView txt = (TextView) view.findViewById(R.id.txt);</span><br><span class="line">		txt.setText(tip);</span><br><span class="line">		Toast toast = <span class="keyword">new</span> Toast(activity);</span><br><span class="line">		<span class="comment">// toast.setGravity(Gravity.CENTER | Gravity.TOP, 12, 40);</span></span><br><span class="line">		toast.setDuration(duration);</span><br><span class="line">		toast.setView(view);</span><br><span class="line">		toast.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/17/CustomToast/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1093,7 +1091,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">127</span>
+              <span class="site-state-item-count">128</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

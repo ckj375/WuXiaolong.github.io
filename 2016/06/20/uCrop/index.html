@@ -1,0 +1,746 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="党要我帅，我不得不帅！" />
+
+
+
+  <meta name="keywords" content="uCrop," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="uCrop使用github地址https://github.com/Yalantis/uCrop然后clone或下载到本地，运行之。
+效果预览">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uCrop使用及源码浅析">
+<meta property="og:url" content="http://wuxiaolong.me/2016/06/20/uCrop/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="uCrop使用github地址https://github.com/Yalantis/uCrop然后clone或下载到本地，运行之。
+效果预览">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/ucrop0.gif">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/ucrop1.jpg">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidProgrammerLogo.jpg">
+<meta property="og:updated_time" content="2016-06-20T08:45:05.720Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="uCrop使用及源码浅析">
+<meta name="twitter:description" content="uCrop使用github地址https://github.com/Yalantis/uCrop然后clone或下载到本地，运行之。
+效果预览">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide'
+  };
+</script>
+
+    <title> uCrop使用及源码浅析 // 吴小龙同學 </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">吴小龙同學</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks" rel="section">
+            <i class="menu-item-icon icon-friendslinks"></i> <br />
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+				
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              uCrop使用及源码浅析
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-20T08:52:32+08:00" content="2016-06-20">
+            2016-06-20
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/source-analysis/" itemprop="url" rel="index"><span itemprop="name">source analysis</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/20/uCrop/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/20/uCrop/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="uCrop使用">uCrop使用</h1><h2 id="github地址">github地址</h2><p><a href="https://github.com/Yalantis/uCrop" target="_blank" rel="external">https://github.com/Yalantis/uCrop</a><br>然后clone或下载到本地，运行之。</p>
+<h2 id="效果预览">效果预览</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/ucrop0.gif" alt=""></p>
+<a id="more"></a>
+<h2 id="app/build-gradle">app/build.gradle</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.yalantis:ucrop:1.5.0'</span></span><br></pre></td></tr></table></figure>
+<h2 id="AndroidManifest-xml">AndroidManifest.xml</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">    android:name=<span class="string">"com.yalantis.ucrop.UCropActivity"</span></span><br><span class="line">    android:screenOrientation=<span class="string">"portrait"</span></span><br><span class="line">    android:theme=<span class="string">"@style/Theme.AppCompat.Light.NoActionBar"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>这里theme可以改成自己的</p>
+<h2 id="配置uCrop">配置uCrop</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span><br><span class="line">  * 启动裁剪</span><br><span class="line">  * <span class="doctag">@param</span> activity 上下文</span><br><span class="line">  * <span class="doctag">@param</span> sourceFilePath 需要裁剪图片的绝对路径</span><br><span class="line">  * <span class="doctag">@param</span> requestCode 比如：UCrop.REQUEST_CROP</span><br><span class="line">  * <span class="doctag">@param</span> aspectRatioX 裁剪图片宽高比</span><br><span class="line">  * <span class="doctag">@param</span> aspectRatioY 裁剪图片宽高比</span><br><span class="line">  * <span class="doctag">@return</span></span><br><span class="line">  */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">startUCrop</span><span class="params">(Activity activity, String sourceFilePath, </span><br><span class="line">	<span class="keyword">int</span> requestCode, <span class="keyword">float</span> aspectRatioX, <span class="keyword">float</span> aspectRatioY)</span> </span>&#123;</span><br><span class="line">    Uri sourceUri = Uri.fromFile(<span class="keyword">new</span> File(sourceFilePath));</span><br><span class="line">    File outDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);</span><br><span class="line">    <span class="keyword">if</span> (!outDir.exists()) &#123;</span><br><span class="line">        outDir.mkdirs();</span><br><span class="line">    &#125;</span><br><span class="line">    File outFile = <span class="keyword">new</span> File(outDir, System.currentTimeMillis() + <span class="string">".jpg"</span>);</span><br><span class="line">    <span class="comment">//裁剪后图片的绝对路径</span></span><br><span class="line">    String cameraScalePath = outFile.getAbsolutePath();</span><br><span class="line">    Uri destinationUri = Uri.fromFile(outFile);</span><br><span class="line">    <span class="comment">//初始化，第一个参数：需要裁剪的图片；第二个参数：裁剪后图片</span></span><br><span class="line">    UCrop uCrop = UCrop.of(sourceUri, destinationUri);</span><br><span class="line">    <span class="comment">//初始化UCrop配置</span></span><br><span class="line">    UCrop.Options options = <span class="keyword">new</span> UCrop.Options();</span><br><span class="line">    <span class="comment">//设置裁剪图片可操作的手势</span></span><br><span class="line">    options.setAllowedGestures(UCropActivity.SCALE, UCropActivity.ROTATE, UCropActivity.ALL);</span><br><span class="line">    <span class="comment">//是否隐藏底部容器，默认显示</span></span><br><span class="line">    options.setHideBottomControls(<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//设置toolbar颜色</span></span><br><span class="line">    options.setToolbarColor(ActivityCompat.getColor(activity, R.color.colorPrimary));</span><br><span class="line">    <span class="comment">//设置状态栏颜色</span></span><br><span class="line">    options.setStatusBarColor(ActivityCompat.getColor(activity, R.color.colorPrimary));</span><br><span class="line">    <span class="comment">//是否能调整裁剪框</span></span><br><span class="line">    options.setFreeStyleCropEnabled(<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//UCrop配置</span></span><br><span class="line">    uCrop.withOptions(options);</span><br><span class="line">    <span class="comment">//设置裁剪图片的宽高比，比如16：9</span></span><br><span class="line">    uCrop.withAspectRatio(aspectRatioX, aspectRatioY);</span><br><span class="line">    <span class="comment">//uCrop.useSourceImageAspectRatio();</span></span><br><span class="line">    <span class="comment">//跳转裁剪页面</span></span><br><span class="line">    uCrop.start(activity, requestCode);</span><br><span class="line">    <span class="keyword">return</span> cameraScalePath;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="其他配置">其他配置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置Toolbar标题</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setToolbarTitle</span><span class="params">(@Nullable String text)</span></span><br><span class="line"><span class="comment">//设置裁剪的图片格式</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setCompressionFormat</span><span class="params">(@NonNull Bitmap.CompressFormat format)</span></span><br><span class="line"><span class="comment">//设置裁剪的图片质量，取值0-100</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setCompressionQuality</span><span class="params">(@IntRange(from = <span class="number">0</span>)</span> <span class="keyword">int</span> compressQuality)</span><br><span class="line"><span class="comment">//设置最多缩放的比例尺</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setMaxScaleMultiplier</span><span class="params">(@FloatRange(from = <span class="number">1.0</span>, fromInclusive = <span class="keyword">false</span>)</span> <span class="keyword">float</span> maxScaleMultiplier)</span><br><span class="line"><span class="comment">//动画时间</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setImageToCropBoundsAnimDuration</span><span class="params">(@IntRange(from = <span class="number">100</span>)</span> <span class="keyword">int</span> durationMillis)</span><br><span class="line"><span class="comment">//设置图片压缩最大值</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setMaxBitmapSize</span><span class="params">(@IntRange(from = <span class="number">100</span>)</span> <span class="keyword">int</span> maxBitmapSize)</span><br><span class="line"><span class="comment">//是否显示椭圆裁剪框阴影</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setOvalDimmedLayer</span><span class="params">(<span class="keyword">boolean</span> isOval)</span> </span><br><span class="line"><span class="comment">//设置椭圆裁剪框阴影颜色</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setDimmedLayerColor</span><span class="params">(@ColorInt <span class="keyword">int</span> color)</span></span><br><span class="line"><span class="comment">//是否显示裁剪框</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setShowCropFrame</span><span class="params">(<span class="keyword">boolean</span> show)</span></span><br><span class="line"><span class="comment">//设置裁剪框边的宽度</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setCropFrameStrokeWidth</span><span class="params">(@IntRange(from = <span class="number">0</span>)</span> <span class="keyword">int</span> width)</span><br><span class="line"><span class="comment">//是否显示裁剪框网格</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setShowCropGrid</span><span class="params">(<span class="keyword">boolean</span> show)</span> </span><br><span class="line"><span class="comment">//设置裁剪框网格颜色</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setCropGridColor</span><span class="params">(@ColorInt <span class="keyword">int</span> color)</span></span><br><span class="line"><span class="comment">//设置裁剪框网格宽</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">setCropGridStrokeWidth</span><span class="params">(@IntRange(from = <span class="number">0</span>)</span> <span class="keyword">int</span> width)</span></span><br></pre></td></tr></table></figure>
+<h2 id="onActivityResult">onActivityResult</h2><p>经过裁剪，返回结果，这里我一般只需要裁剪后的图片绝对路径（调用上面startUCrop，即返回图片路径），然后调接口上传服务器。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (resultCode == RESULT_OK &amp;&amp; requestCode == UCrop.REQUEST_CROP) &#123;</span><br><span class="line">        <span class="keyword">final</span> Uri resultUri = UCrop.getOutput(data);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (resultCode == UCrop.RESULT_ERROR) &#123;</span><br><span class="line">        <span class="keyword">final</span> Throwable cropError = UCrop.getError(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="uCrop源码浅析">uCrop源码浅析</h1><p>uCrop源码能学习的东西有很多，比如左右滑的标尺，不过我们这里源码浅析只关注裁剪部分。</p>
+<h2 id="类关系">类关系</h2><p>首先有个大概了解：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/ucrop1.jpg" alt=""><br>GestureCropImageView：负责监听各种手势<br>CropImageView：主要完成图片裁剪工作，和判断裁剪图片是否充满裁剪框<br>TransformImageView：负责图片旋转、缩放、位移操作</p>
+<h2 id="入口">入口</h2><p>由上面的效果图可知，点击右上角，调用裁剪操作，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (item.getItemId() == R.id.menu_crop) &#123;</span><br><span class="line">        cropAndSaveImage();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onOptionsItemSelected(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//裁剪和保存图片</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">cropAndSaveImage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	……</span><br><span class="line">    mGestureCropImageView.cropAndSaveImage(mCompressFormat, mCompressQuality, <span class="keyword">new</span> BitmapCropCallback() &#123;</span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBitmapCropped</span><span class="params">(@NonNull Uri resultUri)</span> </span>&#123;</span><br><span class="line">            setResultUri(resultUri, mGestureCropImageView.getTargetAspectRatio());</span><br><span class="line">            finish();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCropFailure</span><span class="params">(@NonNull Throwable t)</span> </span>&#123;</span><br><span class="line">            setResultError(t);</span><br><span class="line">            finish();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里调用了GestureCropImageView&amp;cropAndSaveImage方法，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * <span class="doctag">@param</span> compressFormat  图片压缩格式</span><br><span class="line"> * <span class="doctag">@param</span> compressQuality 图片压缩质量</span><br><span class="line"> * <span class="doctag">@param</span> cropCallback    图片压缩回调</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cropAndSaveImage</span><span class="params">(@NonNull Bitmap.CompressFormat compressFormat, <span class="keyword">int</span> 											compressQuality,@Nullable BitmapCropCallback cropCallback)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//取消所有动画</span></span><br><span class="line">    cancelAllAnimations();</span><br><span class="line">    <span class="comment">//判断裁剪图片是否充满裁剪框</span></span><br><span class="line">    setImageToWrapCropBounds(<span class="keyword">false</span>);</span><br><span class="line">    <span class="comment">//进行裁剪</span></span><br><span class="line">    <span class="keyword">new</span> BitmapCropTask(getViewBitmap(), mCropRect, RectUtils.trapToRect(mCurrentImageCorners),</span><br><span class="line">            getCurrentScale(), getCurrentAngle(),</span><br><span class="line">            mMaxResultImageSizeX, mMaxResultImageSizeY,</span><br><span class="line">            compressFormat, compressQuality,</span><br><span class="line">            getImageInputPath(), getImageOutputPath(),</span><br><span class="line">            cropCallback).execute();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="裁剪之前">裁剪之前</h2><h3 id="setImageToWrapCropBounds">setImageToWrapCropBounds</h3><p>裁剪之前，先判断裁剪图片是否充满裁剪框，如果没有，进行移动和缩放让其充满。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setImageToWrapCropBounds</span><span class="params">(<span class="keyword">boolean</span> animate)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//mBitmapLaidOut图片加载OK，isImageWrapCropBounds()检查图片是否充满裁剪框</span></span><br><span class="line">    <span class="keyword">if</span> (mBitmapLaidOut &amp;&amp; !isImageWrapCropBounds()) &#123;</span><br><span class="line">        <span class="comment">//当前图片中心X点</span></span><br><span class="line">        <span class="keyword">float</span> currentX = mCurrentImageCenter[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//当前图片中心Y点</span></span><br><span class="line">        <span class="keyword">float</span> currentY = mCurrentImageCenter[<span class="number">1</span>];</span><br><span class="line">        <span class="comment">//当前图片缩放值</span></span><br><span class="line">        <span class="keyword">float</span> currentScale = getCurrentScale();</span><br><span class="line">        <span class="comment">//差量</span></span><br><span class="line">        <span class="keyword">float</span> deltaX = mCropRect.centerX() - currentX;</span><br><span class="line">        <span class="keyword">float</span> deltaY = mCropRect.centerY() - currentY;</span><br><span class="line">        <span class="keyword">float</span> deltaScale = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//临时矩阵重置</span></span><br><span class="line">        mTempMatrix.reset();</span><br><span class="line">        <span class="comment">//临时矩阵移动</span></span><br><span class="line">        mTempMatrix.setTranslate(deltaX, deltaY);</span><br><span class="line">        <span class="comment">//复制到新的数组</span></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">float</span>[] tempCurrentImageCorners = Arrays.copyOf(mCurrentImageCorners, mCurrentImageCorners.length);</span><br><span class="line">        <span class="comment">//将此矩阵应用于二维点的数组，并编写转换后的指向数组的点</span></span><br><span class="line">        mTempMatrix.mapPoints(tempCurrentImageCorners);</span><br><span class="line">        <span class="comment">//再检查图片是否充满裁剪框</span></span><br><span class="line">        <span class="keyword">boolean</span> willImageWrapCropBoundsAfterTranslate = isImageWrapCropBounds(tempCurrentImageCorners);</span><br><span class="line">        <span class="keyword">if</span> (willImageWrapCropBoundsAfterTranslate) &#123;</span><br><span class="line">            <span class="comment">//图片缩进的数组</span></span><br><span class="line">            <span class="keyword">final</span> <span class="keyword">float</span>[] imageIndents = calculateImageIndents();</span><br><span class="line">            deltaX = -(imageIndents[<span class="number">0</span>] + imageIndents[<span class="number">2</span>]);</span><br><span class="line">            deltaY = -(imageIndents[<span class="number">1</span>] + imageIndents[<span class="number">3</span>]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            RectF tempCropRect = <span class="keyword">new</span> RectF(mCropRect);</span><br><span class="line">            mTempMatrix.reset();</span><br><span class="line">            mTempMatrix.setRotate(getCurrentAngle());</span><br><span class="line">            mTempMatrix.mapRect(tempCropRect);</span><br><span class="line">            <span class="comment">//获取裁剪图片的边</span></span><br><span class="line">            <span class="keyword">final</span> <span class="keyword">float</span>[] currentImageSides = RectUtils.getRectSidesFromCorners(mCurrentImageCorners);</span><br><span class="line">            deltaScale = Math.max(tempCropRect.width() / currentImageSides[<span class="number">0</span>],</span><br><span class="line">                    tempCropRect.height() / currentImageSides[<span class="number">1</span>]);</span><br><span class="line">            deltaScale = deltaScale * currentScale - currentScale;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (animate) &#123;</span><br><span class="line">            <span class="comment">//移动或缩放图片（有动画效果）</span></span><br><span class="line">            post(mWrapCropBoundsRunnable = <span class="keyword">new</span> WrapCropBoundsRunnable(</span><br><span class="line">                    CropImageView.<span class="keyword">this</span>, mImageToWrapCropBoundsAnimDuration, currentX, currentY, deltaX, deltaY,</span><br><span class="line">                    currentScale, deltaScale, willImageWrapCropBoundsAfterTranslate));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//移动图片</span></span><br><span class="line">            postTranslate(deltaX, deltaY);</span><br><span class="line">            <span class="keyword">if</span> (!willImageWrapCropBoundsAfterTranslate) &#123;</span><br><span class="line">                <span class="comment">//缩放图片</span></span><br><span class="line">                zoomInImage(currentScale + deltaScale, mCropRect.centerX(), mCropRect.centerY());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="进行裁剪">进行裁剪</h2><p>裁剪放到了异步，即BitmapCropTask继承AsyncTask，先设置原始图片resizeScale值，然后通过ExifInterface保存新的图片，即裁剪后的图片。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BitmapCropTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>, <span class="title">Void</span>, <span class="title">Throwable</span>&gt; </span>&#123;</span><br><span class="line">	</span><br><span class="line">	……</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> viewBitmap          裁剪图片bitmap</span><br><span class="line">     * <span class="doctag">@param</span> cropRect            裁剪矩形</span><br><span class="line">     * <span class="doctag">@param</span> currentImageRect    当前图片矩形</span><br><span class="line">     * <span class="doctag">@param</span> currentScale        当前图片缩放值</span><br><span class="line">     * <span class="doctag">@param</span> currentAngle        当前图片角度</span><br><span class="line">     * <span class="doctag">@param</span> maxResultImageSizeX 图片裁剪后最大宽值</span><br><span class="line">     * <span class="doctag">@param</span> maxResultImageSizeY 图片裁剪后最大高值</span><br><span class="line">     * <span class="doctag">@param</span> compressFormat      图片裁剪的格式</span><br><span class="line">     * <span class="doctag">@param</span> compressQuality     图片裁剪的质量</span><br><span class="line">     * <span class="doctag">@param</span> imageInputPath      裁剪图片路径</span><br><span class="line">     * <span class="doctag">@param</span> imageOutputPath     图片裁剪后路径</span><br><span class="line">     * <span class="doctag">@param</span> cropCallback        裁剪回调</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BitmapCropTask</span><span class="params">(@Nullable Bitmap viewBitmap,</span><br><span class="line">                          @NonNull RectF cropRect, @NonNull RectF currentImageRect,</span><br><span class="line">                          <span class="keyword">float</span> currentScale, <span class="keyword">float</span> currentAngle,</span><br><span class="line">                          <span class="keyword">int</span> maxResultImageSizeX, <span class="keyword">int</span> maxResultImageSizeY,</span><br><span class="line">                          @NonNull Bitmap.CompressFormat compressFormat, <span class="keyword">int</span> compressQuality,</span><br><span class="line">                          @NonNull String imageInputPath, @NonNull String imageOutputPath,</span><br><span class="line">                          @Nullable BitmapCropCallback cropCallback)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      ……</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="annotation">@Nullable</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Throwable <span class="title">doInBackground</span><span class="params">(Void... params)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mViewBitmap == <span class="keyword">null</span> || mViewBitmap.isRecycled()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> NullPointerException(<span class="string">"ViewBitmap is null or already recycled"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (mCurrentImageRect.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> NullPointerException(<span class="string">"CurrentImageRect is empty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">//设置resizeScale值</span></span><br><span class="line">        <span class="keyword">float</span> resizeScale = resize();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">	        <span class="comment">//裁剪</span></span><br><span class="line">            crop(resizeScale);</span><br><span class="line">            <span class="comment">//回收</span></span><br><span class="line">            mViewBitmap.recycle();</span><br><span class="line">            mViewBitmap = <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable throwable) &#123;</span><br><span class="line">            <span class="keyword">return</span> throwable;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">float</span> <span class="title">resize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//初始Options</span></span><br><span class="line">        <span class="keyword">final</span> BitmapFactory.Options options = <span class="keyword">new</span> BitmapFactory.Options();</span><br><span class="line">        <span class="comment">//查询该位图，而无需分配存储器，可获取outHeight(图片原始高度)和 outWidth(图片的原始宽度)</span></span><br><span class="line">        options.inJustDecodeBounds = <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">//裁剪图片解码</span></span><br><span class="line">        BitmapFactory.decodeFile(mImageInputPath, options);</span><br><span class="line">        <span class="comment">//原始图片和裁剪后图片比值</span></span><br><span class="line">        <span class="keyword">float</span> scaleX = options.outWidth / mViewBitmap.getWidth();</span><br><span class="line">        <span class="keyword">float</span> scaleY = options.outHeight / mViewBitmap.getHeight();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">float</span> resizeScale = Math.min(scaleX, scaleY);</span><br><span class="line"></span><br><span class="line">        mCurrentScale /= resizeScale;</span><br><span class="line">        <span class="comment">//初始化值为1</span></span><br><span class="line">        resizeScale = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (mMaxResultImageSizeX &gt; <span class="number">0</span> &amp;&amp; mMaxResultImageSizeY &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">float</span> cropWidth = mCropRect.width() / mCurrentScale;</span><br><span class="line">            <span class="keyword">float</span> cropHeight = mCropRect.height() / mCurrentScale;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (cropWidth &gt; mMaxResultImageSizeX || cropHeight &gt; mMaxResultImageSizeY) &#123;</span><br><span class="line"></span><br><span class="line">                scaleX = mMaxResultImageSizeX / cropWidth;</span><br><span class="line">                scaleY = mMaxResultImageSizeY / cropHeight;</span><br><span class="line">                <span class="comment">//设置resizeScale，如果是2就是高度和宽度都是原始的一半</span></span><br><span class="line">                resizeScale = Math.min(scaleX, scaleY);</span><br><span class="line"></span><br><span class="line">                mCurrentScale /= resizeScale;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resizeScale;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">crop</span><span class="params">(<span class="keyword">float</span> resizeScale)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//ExifInterface这个接口提供了图片文件的旋转，gps，时间等信息，从原始图片读出Exif标签</span></span><br><span class="line">        ExifInterface originalExif = <span class="keyword">new</span> ExifInterface(mImageInputPath);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> top = Math.round((mCropRect.top - mCurrentImageRect.top) / mCurrentScale);</span><br><span class="line">        <span class="keyword">int</span> left = Math.round((mCropRect.left - mCurrentImageRect.left) / mCurrentScale);</span><br><span class="line">        <span class="keyword">int</span> width = Math.round(mCropRect.width() / mCurrentScale);</span><br><span class="line">        <span class="keyword">int</span> height = Math.round(mCropRect.height() / mCurrentScale);</span><br><span class="line">		<span class="comment">//复制图片</span></span><br><span class="line">        <span class="keyword">boolean</span> cropped = cropCImg(mImageInputPath, mImageOutputPath,</span><br><span class="line">                left, top, width, height, mCurrentAngle, resizeScale,</span><br><span class="line">                mCompressFormat.ordinal(), mCompressQuality);</span><br><span class="line">        <span class="keyword">if</span> (cropped) &#123;</span><br><span class="line">	        <span class="comment">//拿到裁剪后图片</span></span><br><span class="line">            copyExif(originalExif, width, height);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> cropped;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@SuppressWarnings</span>(<span class="string">"JniMissingFunction"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">native</span> <span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">cropCImg</span><span class="params">(String inputPath, String outputPath,</span><br><span class="line">                                   <span class="keyword">int</span> left, <span class="keyword">int</span> top, <span class="keyword">int</span> width, <span class="keyword">int</span> height, <span class="keyword">float</span> angle, <span class="keyword">float</span> resizeScale,</span><br><span class="line">                                   <span class="keyword">int</span> format, <span class="keyword">int</span> quality)</span> <span class="keyword">throws</span> IOException, OutOfMemoryError</span>;</span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * <span class="doctag">@param</span> originalExif 原始图片Exif</span><br><span class="line">	 * <span class="doctag">@param</span> width        裁剪后图片宽</span><br><span class="line">	 * <span class="doctag">@param</span> height       裁剪后图片高</span><br><span class="line">	 * <span class="doctag">@throws</span> IOException 是否异常</span><br><span class="line">	 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">copyExif</span><span class="params">(ExifInterface originalExif, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//Exif标签数组</span></span><br><span class="line">        String[] attributes = <span class="keyword">new</span> String[]&#123;</span><br><span class="line">                ExifInterface.TAG_APERTURE,</span><br><span class="line">                ……</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">//指定裁剪后图片路径，初始化新的ExifInterface</span></span><br><span class="line">        ExifInterface newExif = <span class="keyword">new</span> ExifInterface(mImageOutputPath);</span><br><span class="line">        String value;</span><br><span class="line">        <span class="keyword">for</span> (String attribute : attributes) &#123;</span><br><span class="line">            value = originalExif.getAttribute(attribute);</span><br><span class="line">            <span class="keyword">if</span> (!TextUtils.isEmpty(value)) &#123;</span><br><span class="line">                <span class="comment">//设置Exif标签</span></span><br><span class="line">                newExif.setAttribute(attribute, value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        newExif.setAttribute(ExifInterface.TAG_IMAGE_WIDTH, String.valueOf(width));</span><br><span class="line">        newExif.setAttribute(ExifInterface.TAG_IMAGE_LENGTH, String.valueOf(height));</span><br><span class="line">        newExif.setAttribute(ExifInterface.TAG_ORIENTATION, <span class="string">"0"</span>);</span><br><span class="line">        <span class="comment">//保存</span></span><br><span class="line">        newExif.saveAttributes();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(@Nullable Throwable t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mCropCallback != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">//接口回调，over</span></span><br><span class="line">                mCropCallback.onBitmapCropped(Uri.fromFile(<span class="keyword">new</span> File(mImageOutputPath)));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                mCropCallback.onCropFailure(t);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="AndroidProgrammer">AndroidProgrammer</h1><p>我的微信公众号：Android高手进阶之路，让我们共同学习，每天进步一点点。欢迎微信扫一扫关注。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidProgrammerLogo.jpg" alt=""></p>
+<h1 id="总结">总结</h1><p>uCrop功能强大，对于我来说，有很多东西值得学习，难点如Rect包含问题（其实这块还不是很理解），新知识如ExifInterface操作图片，BitmapFactory显示图片的知识点温故等，还有自定义左右滑的标尺，都是不错的学习源码。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/uCrop/" rel="tag">#uCrop</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/18/retrofits/" rel="next">Android Retrofit 2.0 使用-补充篇</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/06/20/uCrop/"
+     data-title="uCrop使用及源码浅析"
+     data-content=""
+     data-url="http://wuxiaolong.me/2016/06/20/uCrop/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+	   <li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ好友</a></li>
+       <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+	   <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>	     
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+			
+            </div>
+            
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2016/06/20/uCrop/"
+                       data-title="uCrop使用及源码浅析" data-url="http://wuxiaolong.me/2016/06/20/uCrop/">
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="吴小龙同學" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">吴小龙同學</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">党要我帅，我不得不帅！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">128</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">95</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WuXiaolong" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2175011601" target="_blank">Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/qq" target="_blank">QQ</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">热门推荐</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://wuxiaolong.me/2015/08/10/android-small-knowledge-base/" target="_blank">Android小知识库</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/" target="_blank">Android MVP实例</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://wuxiaolong.me/2015/11/10/toolbar/" target="_blank">Android Toolbar</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#uCrop使用"><span class="nav-number">1.</span> <span class="nav-text">uCrop使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#github地址"><span class="nav-number">1.1.</span> <span class="nav-text">github地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果预览"><span class="nav-number">1.2.</span> <span class="nav-text">效果预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app/build-gradle"><span class="nav-number">1.3.</span> <span class="nav-text">app/build.gradle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AndroidManifest-xml"><span class="nav-number">1.4.</span> <span class="nav-text">AndroidManifest.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置uCrop"><span class="nav-number">1.5.</span> <span class="nav-text">配置uCrop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他配置"><span class="nav-number">1.6.</span> <span class="nav-text">其他配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onActivityResult"><span class="nav-number">1.7.</span> <span class="nav-text">onActivityResult</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#uCrop源码浅析"><span class="nav-number">2.</span> <span class="nav-text">uCrop源码浅析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类关系"><span class="nav-number">2.1.</span> <span class="nav-text">类关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入口"><span class="nav-number">2.2.</span> <span class="nav-text">入口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#裁剪之前"><span class="nav-number">2.3.</span> <span class="nav-text">裁剪之前</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#setImageToWrapCropBounds"><span class="nav-number">2.3.1.</span> <span class="nav-text">setImageToWrapCropBounds</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进行裁剪"><span class="nav-number">2.4.</span> <span class="nav-text">进行裁剪</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidProgrammer"><span class="nav-number">3.</span> <span class="nav-text">AndroidProgrammer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+</div>
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wuxiaolong"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	  <script type="text/javascript">
+  		var duoshuo_user_ID = wuxiaolong
+  	  </script>
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>

@@ -205,6 +205,90 @@
           
           
             
+              <a class="post-title-link" href="/2013/07/23/how-to-prevent-the-APK-program-by-decompile/" itemprop="url">
+                Android如何防止apk程序被反编译
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2013-07-23T00:00:00+08:00" content="2013-07-23">
+            2013-07-23
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2013/07/23/how-to-prevent-the-APK-program-by-decompile/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2013/07/23/how-to-prevent-the-APK-program-by-decompile/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>作为Android应用开发者，不得不面对一个尴尬的局面，就是自己辛辛苦苦开发的应用可以被别人很轻易的就反编译出来。Google似乎也发现了这个问题，从SDK2.3开始我们可以看到在android-sdk-windows\tools\下面多了一个proguard文件夹。proguard是一个java代码混淆的工具，通过proguard，别人即使反编译你的apk包，也只会看到一些让人很难看懂的代码，从而达到保护代码的作用。新建项目都会有以下两个文件：<br><img src="http://wuxiaolong.qiniudn.com/2013-07-18-mobile-phone-information-acquisition-1.png" alt=""><br>project.properties文件“proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt”注释放开。<br><img src="http://wuxiaolong.qiniudn.com/2013-07-18-mobile-phone-information-acquisition-2.png" alt=""><br>然后在proguard-project.txt文件里做混淆，例如：</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2013/07/23/how-to-prevent-the-APK-program-by-decompile/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2013/07/23/screen-adaptation/" itemprop="url">
                 Android屏幕适配不同的资源图片、布局
               </a>
@@ -828,7 +912,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">127</span>
+              <span class="site-state-item-count">128</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
