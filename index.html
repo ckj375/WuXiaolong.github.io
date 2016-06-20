@@ -205,6 +205,180 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/18/retrofits/" itemprop="url">
+                Android Retrofit 2.0 使用-补充篇
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-18T08:48:53+08:00" content="2016-06-18">
+            2016-06-18
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Retrofit/" itemprop="url" rel="index"><span itemprop="name">Retrofit</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/18/retrofits/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/18/retrofits/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>推荐阅读，猛戳：<br>1、<a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/">Android MVP 实例</a><br>2、<a href="http://wuxiaolong.me/2016/01/15/retrofit/">Android Retrofit 2.0使用</a><br>3、<a href="http://wuxiaolong.me/2016/01/18/rxjava/">RxJava</a><br>4、<a href="http://wuxiaolong.me/2016/04/07/rxbus/">RxBus</a><br>5、<a href="http://wuxiaolong.me/2016/06/12/mvpRetrofitRxjava/">Android MVP+Retrofit+RxJava实践小结</a></p>
+<blockquote>
+<p>之前分享的<a href="http://wuxiaolong.me/2016/01/15/retrofit/">Android Retrofit 2.0 使用</a>，属于基本的使用，实际开发还远远不够，因此对其补充，主要在Retrofit配置和接口参数。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/18/retrofits/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/06/16/uCrop/" itemprop="url">
+                uCrop使用及源码浅析
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-16T08:52:32+08:00" content="2016-06-16">
+            2016-06-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/source-analysis/" itemprop="url" rel="index"><span itemprop="name">source analysis</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/16/uCrop/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/16/uCrop/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h1 id="uCrop使用">uCrop使用</h1><h2 id="github地址">github地址</h2><p><a href="https://github.com/Yalantis/uCrop" target="_blank" rel="external">https://github.com/Yalantis/uCrop</a></p>
+<h2 id="app/build-gradle">app/build.gradle</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.yalantis:ucrop:1.5.0'</span></span><br></pre></td></tr></table></figure>
+<h2 id="AndroidManifest-xml">AndroidManifest.xml</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">    android:<span class="property">name</span>=<span class="string">"com.yalantis.ucrop.UCropActivity"</span></span><br><span class="line">    android:screenOrientation=<span class="string">"portrait"</span></span><br><span class="line">    android:theme=<span class="string">"@style/Theme.AppCompat.Light.NoActionBar"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>这里theme可以改成自己的</p>
+<h2 id="配置uCrop">配置uCrop</h2><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span><br><span class="line">  * 启动裁剪</span><br><span class="line">  * @param activity 上下文</span><br><span class="line">  * @param sourceFilePath 需要裁剪图片的绝对路径</span><br><span class="line">  * @param requestCode 比如：UCrop.REQUEST_CROP</span><br><span class="line">  * @param aspectRatioX 裁剪图片宽高比</span><br><span class="line">  * @param aspectRatioY 裁剪图片宽高比</span><br><span class="line">  * @return</span><br><span class="line">  */</span></span><br><span class="line">public static String startUCrop<span class="params">(Activity activity, String sourceFilePath, </span><br><span class="line">	int requestCode, float aspectRatioX, float aspectRatioY)</span> &#123;</span><br><span class="line">    Uri sourceUri = Uri.fromFile<span class="params">(new File<span class="params">(sourceFilePath)</span>)</span>;</span><br><span class="line">    File outDir = Environment.getExternalStoragePublicDirectory<span class="params">(Environment.DIRECTORY_<span class="literal">PI</span>CTURES)</span>;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(!outDir.exists<span class="params">()</span>)</span> &#123;</span><br><span class="line">        outDir.mkdirs<span class="params">()</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    File outFile = new File<span class="params">(outDir, System.currentTimeMillis<span class="params">()</span> + <span class="string">".jpg"</span>)</span>;</span><br><span class="line">    <span class="comment">//裁剪后图片的绝对路径</span></span><br><span class="line">    String cameraScalePath = outFile.getAbsolutePath<span class="params">()</span>;</span><br><span class="line">    Uri destinationUri = Uri.fromFile<span class="params">(outFile)</span>;</span><br><span class="line">    <span class="comment">//初始化，第一个参数：需要裁剪的图片；第二个参数：裁剪后图片</span></span><br><span class="line">    UCrop uCrop = UCrop.of<span class="params">(sourceUri, destinationUri)</span>;</span><br><span class="line">    <span class="comment">//初始化UCrop配置</span></span><br><span class="line">    UCrop.Options options = new UCrop.Options<span class="params">()</span>;</span><br><span class="line">    <span class="comment">//设置裁剪图片可操作的手势</span></span><br><span class="line">    options.setAllowedGestures<span class="params">(UCropActivity.SCALE, UCropActivity.ROTATE, UCropActivity.ALL)</span>;</span><br><span class="line">    <span class="comment">//是否隐藏底部容器，默认显示</span></span><br><span class="line">    options.setHideBottomControls<span class="params">(<span class="literal">true</span>)</span>;</span><br><span class="line">    <span class="comment">//设置toolbar颜色</span></span><br><span class="line">    options.setToolbarColor<span class="params">(ActivityCompat.getColor<span class="params">(activity, R.color.colorPrimary)</span>)</span>;</span><br><span class="line">    <span class="comment">//设置状态栏颜色</span></span><br><span class="line">    options.setStatusBarColor<span class="params">(ActivityCompat.getColor<span class="params">(activity, R.color.colorPrimary)</span>)</span>;</span><br><span class="line">    <span class="comment">//是否能调整裁剪框</span></span><br><span class="line">    options.setFreeStyleCropEnabled<span class="params">(<span class="literal">true</span>)</span>;</span><br><span class="line">    <span class="comment">//UCrop配置</span></span><br><span class="line">    uCrop.withOptions<span class="params">(options)</span>;</span><br><span class="line">    <span class="comment">//设置裁剪图片的宽高比，比如16：9</span></span><br><span class="line">    uCrop.withAspectRatio<span class="params">(aspectRatioX, aspectRatioY)</span>;</span><br><span class="line">    <span class="comment">//uCrop.useSourceImageAspectRatio();</span></span><br><span class="line">    <span class="comment">//跳转裁剪页面</span></span><br><span class="line">    uCrop.start<span class="params">(activity, requestCode)</span>;</span><br><span class="line">    return cameraScalePath;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他配置<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置Toolbar标题</span></span><br><span class="line">void <span class="function"><span class="title">setToolbarTitle</span><span class="params">(@Nullable String text)</span></span></span><br><span class="line"><span class="comment">//设置裁剪的图片格式</span></span><br><span class="line">void <span class="function"><span class="title">setCompressionFormat</span><span class="params">(@NonNull Bitmap.CompressFormat format)</span></span></span><br><span class="line"><span class="comment">//设置裁剪的图片质量，取值0-100</span></span><br><span class="line">void <span class="function"><span class="title">setCompressionQuality</span><span class="params">(@IntRange(from = <span class="number">0</span>)</span></span> int compressQuality)</span><br><span class="line"><span class="comment">//设置最多缩放的比例尺</span></span><br><span class="line">void <span class="function"><span class="title">setMaxScaleMultiplier</span><span class="params">(@FloatRange(from = <span class="number">1.0</span>, fromInclusive = false)</span></span> <span class="attribute">float</span> maxScaleMultiplier)</span><br><span class="line"><span class="comment">//动画时间</span></span><br><span class="line">void <span class="function"><span class="title">setImageToCropBoundsAnimDuration</span><span class="params">(@IntRange(from = <span class="number">100</span>)</span></span> int durationMillis)</span><br><span class="line"><span class="comment">//设置图片压缩最大值</span></span><br><span class="line">void <span class="function"><span class="title">setMaxBitmapSize</span><span class="params">(@IntRange(from = <span class="number">100</span>)</span></span> int maxBitmapSize)</span><br><span class="line"><span class="comment">//是否显示椭圆裁剪框阴影</span></span><br><span class="line">void <span class="function"><span class="title">setOvalDimmedLayer</span><span class="params">(boolean isOval)</span></span> </span><br><span class="line"><span class="comment">//设置椭圆裁剪框阴影颜色</span></span><br><span class="line">void <span class="function"><span class="title">setDimmedLayerColor</span><span class="params">(@ColorInt int color)</span></span></span><br><span class="line"><span class="comment">//是否显示裁剪框</span></span><br><span class="line">void <span class="function"><span class="title">setShowCropFrame</span><span class="params">(boolean show)</span></span></span><br><span class="line"><span class="comment">//设置裁剪框边的宽度</span></span><br><span class="line">void <span class="function"><span class="title">setCropFrameStrokeWidth</span><span class="params">(@IntRange(from = <span class="number">0</span>)</span></span> int <span class="attribute">width</span>)</span><br><span class="line"><span class="comment">//是否显示裁剪框网格</span></span><br><span class="line">void <span class="function"><span class="title">setShowCropGrid</span><span class="params">(boolean show)</span></span> </span><br><span class="line"><span class="comment">//设置裁剪框网格颜色</span></span><br><span class="line">void <span class="function"><span class="title">setCropGridColor</span><span class="params">(@ColorInt int color)</span></span></span><br><span class="line"><span class="comment">//设置裁剪框网格宽</span></span><br><span class="line">void <span class="function"><span class="title">setCropGridStrokeWidth</span><span class="params">(@IntRange(from = <span class="number">0</span>)</span></span> int <span class="attribute">width</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="onActivityResult">onActivityResult</h2><p>经过裁剪，返回结果，这里我一般只需要裁剪后的图片绝对路径（调用上面startUCrop，即返回图片路径），然后调接口上传服务器。<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">Override</span></span><br><span class="line"><span class="title">public</span> void onActivityResult(int requestCode, int resultCode, <span class="type">Intent</span> <span class="typedef"><span class="keyword">data</span>) <span class="container">&#123;</span><br><span class="line">    <span class="title">if</span> (<span class="title">resultCode</span> == <span class="type">RESULT_OK</span> &amp;&amp; <span class="title">requestCode</span> == <span class="type">UCrop</span>.<span class="type">REQUEST_CROP</span>) &#123;</span><br><span class="line">        <span class="title">final</span> <span class="type">Uri</span> <span class="title">resultUri</span> = <span class="type">UCrop</span>.<span class="title">getOutput</span>(<span class="title">data</span>);</span><br><span class="line">    &#125;</span> else if <span class="container">(<span class="title">resultCode</span> == <span class="type">UCrop</span>.<span class="type">RESULT_ERROR</span>)</span> <span class="container">&#123;</span><br><span class="line">        <span class="title">final</span> <span class="type">Throwable</span> <span class="title">cropError</span> = <span class="type">UCrop</span>.<span class="title">getError</span>(<span class="title">data</span>);</span><br><span class="line">    &#125;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="uCrop源码浅析">uCrop源码浅析</h1><p>如果对源码不感兴趣，可以不继续往下读了，因为以上内容对于uCrop常规使用已经足够了。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/12/mvpRetrofitRxjava/" itemprop="url">
                 Android MVP+Retrofit+RxJava实践小结
               </a>
@@ -892,180 +1066,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/31/gradle4android2/" itemprop="url">
-                Gradle for Android（二）全局设置、自定义BuildConfig、混淆
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-31T14:11:14+08:00" content="2016-03-31">
-            2016-03-31
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Gradle/" itemprop="url" rel="index"><span itemprop="name">Gradle</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/31/gradle4android2/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/gradle4android2/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h1 id="系列博客">系列博客</h1><blockquote>
-<p><a href="http://wuxiaolong.me/2016/03/30/gradle4android1/">Gradle for Android（一）基本配置、依赖管理</a><br><a href="http://wuxiaolong.me/2016/04/01/gradle4android3/">Gradle for Android（三）多渠道打包、配置签名信息</a></p>
-</blockquote>
-<h1 id="全局设置">全局设置</h1><p>如果有很多项目，可以设置全局来统一管理版本号或依赖库，根目录下build.gradle下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ext &#123;</span><br><span class="line">    compileSdkVersion = <span class="number">23</span></span><br><span class="line">    buildToolsVersion = <span class="string">"23.0.2"</span></span><br><span class="line">    minSdkVersion = <span class="number">14</span></span><br><span class="line">    targetSdkVersion = <span class="number">23</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/31/gradle4android2/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/30/gradle4android1/" itemprop="url">
-                Gradle for Android（一）基本配置、依赖管理
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-30T14:11:14+08:00" content="2016-03-30">
-            2016-03-30
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Gradle/" itemprop="url" rel="index"><span itemprop="name">Gradle</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/30/gradle4android1/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/30/gradle4android1/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>Gradle是一种基于Groovy的动态DSL，而Groovy语言是一种基于jvm的动态语言。这里只分享实际开发中会用到的场景，您不需要去学习Groovy语言，知道Java的您是很容易阅读Groovy语言的。<br>系列博客涉及的知识点有：Gradle基本配置、依赖管理、全局设置、自定义BuildConfig、混淆、多渠道打包、配置签名信息、单元测试，是不是迫不及待了啊，快来学习学习。</p>
-</blockquote>
-<h1 id="基本配置">基本配置</h1><p>新建项目，目录结构如下：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android1.png" alt=""><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/30/gradle4android1/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1106,21 +1106,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">126</span>
+              <span class="site-state-item-count">128</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
