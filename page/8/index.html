@@ -303,6 +303,254 @@
             
               
                 
+                <a class="post-title-link" href="/2015/07/29/Android-Iconics/" itemprop="url">
+                  github之Android-Iconics使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-07-29T00:00:00+08:00" content="2015-07-29">
+              2015-07-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/github/" itemprop="url" rel="index">
+                    <span itemprop="name">github</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/29/Android-Iconics/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/29/Android-Iconics/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>源码地址：<a href="https://github.com/mikepenz/Android-Iconics">https://github.com/mikepenz/Android-Iconics</a></p>
+<ul>
+<li>build.gradle添加</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile <span class="string">'com.mikepenz:iconics:1.3.0@aar'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/29/Android-Iconics/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/07/29/AppInfo/" itemprop="url">
+                  Android获取手机已安装apk文件信息
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-07-29T00:00:00+08:00" content="2015-07-29">
+              2015-07-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/29/AppInfo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/29/AppInfo/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_MAIN, <span class="keyword">null</span>);</span><br><span class="line">intent.addCategory(Intent.CATEGORY_LAUNCHER);</span><br><span class="line">List&lt;AppInfo&gt; applicationList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">List&lt;ResolveInfo&gt; resolveInfoList = getPackageManager().queryIntentActivities(intent, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">for</span> (ResolveInfo resolveInfo : resolveInfoList) &#123;</span><br><span class="line">AppInfo appInfo = <span class="keyword">new</span> AppInfo(MainActivity.<span class="keyword">this</span>, resolveInfo);</span><br><span class="line">PackageInfo packageInfo = appInfo.getPackageInfo();</span><br><span class="line"><span class="comment">//判断(applicationInfo.flags &amp; ApplicationInfo.FLAG_SYSTEM)的值，</span></span><br><span class="line"><span class="comment">// 该值大于0时，表示获取的应用为系统预装的应用，反之则为手动安装的应用</span></span><br><span class="line"><span class="keyword">if</span> ((packageInfo.applicationInfo.flags &amp; packageInfo.applicationInfo.FLAG_SYSTEM) &lt;= <span class="number">0</span>) &#123;</span><br><span class="line"><span class="comment">// customs applications</span></span><br><span class="line">applicationList.add(appInfo);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/29/AppInfo/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/07/27/SaveImageToGallery/" itemprop="url">
                   Android保存图片并显示系统图库
                 </a>
@@ -495,7 +743,7 @@
           <p>实现RecyclerView下拉刷新和上拉加载更多以及RecyclerView线性、网格、瀑布流效果演示</p>
 <h1 id="效果预览">效果预览</h1><p><img src="https://github.com/WuXiaolong/PullLoadMoreRecyclerView/raw/master/screenshots/screenshots.gif" alt=""><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/24/PullLoadMoreRecyclerView/#more" rel="contents">
+            <a class="btn" href="/2015/07/24/PullLoadMoreRecyclerView/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -618,7 +866,7 @@
           <p>Android开发人员调查<a href="http://www.wenjuan.com/s/7Jrm2m/">http://www.wenjuan.com/s/7Jrm2m/</a></p>
 <p>截止发文，共收到208份，数据如下：</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/24/AndroidDeveloperSurvey/#more" rel="contents">
+            <a class="btn" href="/2015/07/24/AndroidDeveloperSurvey/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -743,7 +991,7 @@
 </blockquote>
 <h1 id="org-gradle-api-internal-project-ProjectInternal-getPluginManager">org.gradle.api.internal.project.ProjectInternal.getPluginManager</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    jcenter()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    classpath <span class="string">'com.github.dcendents:android-maven-gradle-plugin:1.3'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// this was apply plugin android-maven</span></span><br><span class="line">    apply plugin: <span class="string">'com.github.dcendents.android-maven'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/21/AndroidStudioError/#more" rel="contents">
+            <a class="btn" href="/2015/07/21/AndroidStudioError/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -868,7 +1116,7 @@
 </blockquote>
 <h2 id="效果预览">效果预览</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanAppScreenshots.gif" alt=""></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/13/SavingFiles/#more" rel="contents">
+            <a class="btn" href="/2015/07/13/SavingFiles/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -992,7 +1240,7 @@
 <p>在android开发过程中，经常会要求用户输入手机号，为了便于观看，我们都会已135 xxxx xxxx这种格式展示。</p>
 <p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/20150709_phone_space.png" alt=""></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/09/phone_space/#more" rel="contents">
+            <a class="btn" href="/2015/07/09/phone_space/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1117,7 +1365,7 @@
 </blockquote>
 <h1 id="1、比如列表有收藏按钮，当前页面收藏">1、比如列表有收藏按钮，当前页面收藏</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> List&lt;Map&lt;String, String&gt;&gt; mList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">...</span><br><span class="line">  <span class="comment">//走收藏接口，在成功后，只更改刚刚点击的item的收藏按钮状态</span></span><br><span class="line">  mList.get(position).put(<span class="string">"favorites"</span>, <span class="string">"1"</span>);</span><br><span class="line">  notifyDataSetChanged();</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/08/listView_item_state/#more" rel="contents">
+            <a class="btn" href="/2015/07/08/listView_item_state/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1267,255 +1515,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/10/fragmentMenu/" itemprop="url">
-                  Fragment里更改Activity菜单
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-06-10T00:00:00+08:00" content="2015-06-10">
-              2015-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/06/10/fragmentMenu/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/fragmentMenu/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">       <span class="comment">//来指出fragment愿意添加item到选项菜单(否则, fragment将接收不到对 onCreateOptionsMenu()的调用)</span></span><br><span class="line">       setHasOptionsMenu(<span class="keyword">true</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu, MenuInflater inflater)</span> </span>&#123;</span><br><span class="line">       getActivity().getMenuInflater().inflate(R.menu.menu_yuqing_search, menu);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/10/checkPermission/" itemprop="url">
-                  Android判断权限被限制
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-06-10T00:00:00+08:00" content="2015-06-10">
-              2015-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/06/10/checkPermission/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/checkPermission/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>开发过程，如果某个权限被第三方限制了，比如录音，网上查了下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String permName = <span class="string">"android.permission.RECORD_AUDIO"</span>;</span><br><span class="line">       String pkgName = getPackageName();</span><br><span class="line">       <span class="comment">// 结果为0则表示使用了该权限，-1则表求没有使用该权限</span></span><br><span class="line">       <span class="keyword">int</span> reslut = getPackageManager().checkPermission(permName, pkgName);</span><br><span class="line">       Log.d(<span class="string">"wxl"</span>, <span class="string">"reslut="</span> + reslut + <span class="string">"======"</span></span><br><span class="line">               + PackageManager.PERMISSION_GRANTED);</span><br></pre></td></tr></table></figure>
-<p>实际这个方法只是检测你的APP是否使用了某个权限，但是不能检测是否被限制了。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/10/checkPermission/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1556,7 +1560,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">130</span>
+              <span class="site-state-item-count">132</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

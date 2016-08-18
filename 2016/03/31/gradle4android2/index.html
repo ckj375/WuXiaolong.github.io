@@ -97,8 +97,8 @@ Gradle for Android（一）基本配置、依赖管理Gradle for Android（三�
 
 全局设置如果有很多项目，可以设置全局来统一管理版本号或依赖库，根目录下build.gradle下：123456ext &amp;#123;    compileSdkVersion = 23    buildToolsVersion = &quot;23.0.2&quot;    min">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android2.png">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg">
-<meta property="og:updated_time" content="2016-05-20T08:03:51.085Z">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg">
+<meta property="og:updated_time" content="2016-08-18T00:56:24.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle for Android（二）全局设置、自定义BuildConfig、混淆">
 <meta name="twitter:description" content="系列博客
@@ -396,7 +396,7 @@ Gradle for Android（一）基本配置、依赖管理Gradle for Android（三�
 <p>buildConfigField 一共有3个参数，第一个是数据类型，和Java的类型是对等的；第二个参数是常量名，这里是API_SERVER_URL；第三个参数就是你要配置的值。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android2.png" alt=""><br>如图路径下就有个常量API_SERVER_URL，如何在代码取得这个常量值：<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Log.d<span class="params">(<span class="string">"wxl"</span>, <span class="string">"API_SERVER_URL="</span> + BuildConfig.A<span class="literal">PI</span>_SERVER_URL)</span>;</span><br></pre></td></tr></table></figure></p>
 <h1 id="启用proguard混淆">启用proguard混淆</h1><p>一般release发布版本是需要启用混淆的，这样别人反编译之后就很难分析你的代码，而我们自己开发调试的时候是不需要混淆的，所以debug不启用混淆。对release启用混淆的配置如下：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">android</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="title">buildTypes</span> &#123;</span><br><span class="line">        <span class="title">release</span> &#123;</span><br><span class="line">            <span class="title">minifyEnabled</span> true//是否启动混淆</span><br><span class="line">			shrinkResources <span class="built_in">true</span> //是否移除无用资源文件，shrinkResources依赖于minifyEnabled，必须和minifyEnabled一起用</span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>minifyEnabled为true表示启用混淆，proguardFile是混淆使用的配置文件，这里是module根目录下的proguard-rules.pro文件</p>
-<h1 id="AndroidProgrammer">AndroidProgrammer</h1><p>我的微信公众号：Android高手进阶之路，让我们共同学习，每天进步一点点。欢迎微信扫一扫关注。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_AndroidProgrammer.jpg" alt=""></p>
+<h1 id="微信公众号">微信公众号</h1><p>我的微信公众号：吴小龙同学，不止于技术分享，每天进步一点点，欢迎微信扫一扫关注。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg" alt=""></p>
 <h1 id="关于作者">关于作者</h1><p><a href="http://wuxiaolong.me/about/">点击查看</a></p>
 <h1 id="完整配置">完整配置</h1><p><a href="https://github.com/WuXiaolong/Gradle4Android" target="_blank" rel="external">https://github.com/WuXiaolong/Gradle4Android</a></p>
 
@@ -552,7 +552,7 @@ Gradle for Android（一）基本配置、依赖管理Gradle for Android（三�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">130</span>
+              <span class="site-state-item-count">132</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -627,7 +627,7 @@ Gradle for Android（一）基本配置、依赖管理Gradle for Android（三�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#系列博客"><span class="nav-number">1.</span> <span class="nav-text">系列博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局设置"><span class="nav-number">2.</span> <span class="nav-text">全局设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义BuildConfig"><span class="nav-number">3.</span> <span class="nav-text">自定义BuildConfig</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启用proguard混淆"><span class="nav-number">4.</span> <span class="nav-text">启用proguard混淆</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidProgrammer"><span class="nav-number">5.</span> <span class="nav-text">AndroidProgrammer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于作者"><span class="nav-number">6.</span> <span class="nav-text">关于作者</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整配置"><span class="nav-number">7.</span> <span class="nav-text">完整配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#系列博客"><span class="nav-number">1.</span> <span class="nav-text">系列博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局设置"><span class="nav-number">2.</span> <span class="nav-text">全局设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义BuildConfig"><span class="nav-number">3.</span> <span class="nav-text">自定义BuildConfig</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启用proguard混淆"><span class="nav-number">4.</span> <span class="nav-text">启用proguard混淆</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#微信公众号"><span class="nav-number">5.</span> <span class="nav-text">微信公众号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于作者"><span class="nav-number">6.</span> <span class="nav-text">关于作者</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整配置"><span class="nav-number">7.</span> <span class="nav-text">完整配置</span></a></li></ol></div>
             
           </div>
         </section>
